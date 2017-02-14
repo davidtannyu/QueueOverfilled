@@ -33,6 +33,7 @@ class SessionForm extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.formType != this.props.formType) {
       this.setState({ display_name: "", email: "", password: ""});
+      this.props.clearErrors(this.props.formType);
     }
   }
 
