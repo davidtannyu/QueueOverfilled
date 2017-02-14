@@ -18,7 +18,9 @@ const App = (props) => {
           <GreetingContainer />
         </div>
       </div>
-      { children }
+      <div>
+        { children }
+      </div>
     </div>
   );
 };

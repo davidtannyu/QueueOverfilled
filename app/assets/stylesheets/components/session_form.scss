@@ -7,11 +7,19 @@
   font-weight: 600;
 }
 
+.session-form .form-tabs {
+  height: 50px;
+}
+
 .session-form .selected-form {
   border: 1px solid grey;
   border-bottom: 0px;
   border-top: 3px solid purple;
   float: left;
+}
+
+.session-form form {
+  display: block
 }
 
 .session-form .unselected-form {

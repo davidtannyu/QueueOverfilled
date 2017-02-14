@@ -55,34 +55,39 @@ class SessionForm extends React.Component {
     let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
     return (
       <div className="session-form">
-        <h1>
-          <div>
-            <Link className={logInClass} to="/login">
-              Log In
-            </Link>
-            <Link className={signUpClass} to="/signUp">
-              Sign Up
-            </Link>
-          </div>
-        </h1>
-        <Link to={ `/${formType}`}></Link>
+        <div className="form-tabs">
+          <h1>
+            <div>
+              <Link className={logInClass} to="/login">
+                Log In
+              </Link>
+              <Link className={signUpClass} to="/signUp">
+                Sign Up
+              </Link>
+            </div>
+          </h1>
+        </div>
+
         { errors.map(el => <h4>{el}</h4>) }
-        <form onSubmit={this.handleSubmit}>
-          {display_name_field}
-          <label htmlFor="email"><strong>Email</strong></label>
-          <br />
-          <input id="email" type="text"
-            onChange={this.handleField("email")}
-            value={this.state.email} />
-          <br />
-          <label htmlFor="password"><strong>Password</strong></label>
-          <br />
-          <input id="password" type="password"
-            onChange={this.handleField("password")}
-            value={this.state.password} />
-          <button>{formType}</button>
-        </form>
-      </div>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            {display_name_field}
+            <label htmlFor="email"><strong>Email</strong></label>
+            <br />
+            <input id="email" type="text"
+              onChange={this.handleField("email")}
+              value={this.state.email} />
+            <br />
+            <label htmlFor="password"><strong>Password</strong></label>
+            <br />
+            <input id="password" type="password"
+              onChange={this.handleField("password")}
+              value={this.state.password} />
+            <br />
+            <button>{formType}</button>
+          </form>
+        </div>
+    </div>
     );
   }
 }
