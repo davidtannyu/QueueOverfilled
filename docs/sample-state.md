@@ -8,6 +8,7 @@
   forms: {
     signUp: {errors: []},
     logIn: {errors: []},
+    logOut: {errors: []},
     question: {errors: ["title can't be blank"]},
     answer: {errors: []}
   },

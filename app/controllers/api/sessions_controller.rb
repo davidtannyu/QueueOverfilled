@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
       log_in!(@user)
       render 'api/users/show'
     else
-      render json: { base: ["Invalid username/password"] }, status: 422
+      render json: ["Invalid username/password"], status: 422
     end
   end
 
@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
       log_out!
       render 'api/users/show'
     else
-      render json: { base: ["No current user"]}, status: 404
+      render json: ["No current user"], status: 404
     end
   end
 end
