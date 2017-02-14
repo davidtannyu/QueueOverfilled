@@ -13,12 +13,12 @@ export default class Greeting extends Component {
     }
     else {
       component = [
-        <li key="signup-button"> <Link to='/signup'>Signup</Link> </li>,
-        <li key="login-button"> <Link to='/login'>Login</Link> </li>
+        <li className="login-button" key="login-button"> <Link to='/login'>Log In</Link> </li>,
+        <li className="signup-button" key="signup-button"> <Link to='/signup'>Sign Up</Link> </li>
       ];
     }
     return (
-      <ul>
+      <ul className="list-links">
         {component}
       </ul>
     );

@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
     );}
     let header = formType === "signUp" ? "Sign up" : "Log in";
     return (
-      <div>
+      <div className="session-form">
         <h1>{header}</h1>
         <Link to={ `/${formType}`}></Link>
         { errors.map(el => <h4>{el}</h4>) }
