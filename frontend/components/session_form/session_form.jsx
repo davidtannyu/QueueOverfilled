@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
     this.state = { display_name: "", email: "", password: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleField = this.handleField.bind(this);
+    this.clearPassword = this.clearPassword.bind(this);
   }
 
   handleSubmit(e) {
@@ -16,7 +17,11 @@ class SessionForm extends React.Component {
     this.props.processForm(user)
     .then(() => {
       this.props.router.push('/');
-    });
+    }, err => this.clearPassword());
+  }
+
+  clearPassword() {
+    this.setState({password:""});
   }
 
   handleField(field) {
