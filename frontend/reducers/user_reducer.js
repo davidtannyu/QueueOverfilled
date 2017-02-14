@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/user_actions';
 
-const defaultState = {};
+const defaultState = null;
 
 export default function usersReducer(state = defaultState, action ) {
   Object.freeze(state);

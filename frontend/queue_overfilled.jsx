@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as SessionApiUtil from './util/session_api_util';
 import configureStore from './store/store';
+import Root from './components/Root';
+
+import * as SessionApiUtil from './util/session_api_util';
 import * as SessionActions from './actions/user_actions';
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+  let preloadedState = {};
+  let currentUser = window.currentUser;
+  if (currentUser) {
+    preloadedState = { currentUser };
+  }
+  const store = configureStore(preloadedState);
   window.store = store;
   window.session = SessionApiUtil;
   window.action = SessionActions;
-  ReactDOM.render(<h1>Welcome to QueueOverfilled</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
