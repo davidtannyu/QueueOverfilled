@@ -1,3 +1,22 @@
 .session-form {
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.session-form strong {
+  font-weight: 600;
+}
+
+.session-form .selected-form {
+  border: 1px solid grey;
+  border-bottom: 0px;
+  border-top: 3px solid purple;
+  float: left;
+}
+
+.session-form .unselected-form {
+  float:left;
+  border: 1px solid grey;
+  border-bottom: 0px;
+  padding-top: 3px;
 }

@@ -43,31 +43,44 @@ class SessionForm extends React.Component {
     if (formType === "signUp") {
       display_name_field = (
         <div>
-          <label htmlFor="display_name">Display Name</label>
+          <label htmlFor="display_name"><strong>Display Name</strong></label>
+          <br />
           <input id="display_name" type="text"
             onChange={this.handleField("display_name")}
             value={this.state.display_name} />
           <br />
         </div>
     );}
-    let header = formType === "signUp" ? "Sign up" : "Log in";
+    let signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form";
+    let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
     return (
       <div className="session-form">
-        <h1>{header}</h1>
+        <h1>
+          <div>
+            <Link className={logInClass} to="/login">
+              Log In
+            </Link>
+            <Link className={signUpClass} to="/signUp">
+              Sign Up
+            </Link>
+          </div>
+        </h1>
         <Link to={ `/${formType}`}></Link>
         { errors.map(el => <h4>{el}</h4>) }
         <form onSubmit={this.handleSubmit}>
           {display_name_field}
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"><strong>Email</strong></label>
+          <br />
           <input id="email" type="text"
             onChange={this.handleField("email")}
             value={this.state.email} />
           <br />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"><strong>Password</strong></label>
+          <br />
           <input id="password" type="password"
             onChange={this.handleField("password")}
             value={this.state.password} />
-          <button>{header}</button>
+          <button>{formType}</button>
         </form>
       </div>
     );
