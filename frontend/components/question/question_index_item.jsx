@@ -3,9 +3,9 @@ import React from "react";
 const QuestionIndexItem = (props) => {
   let { question } = props;
   return (
-    <li className="bench-index-item">
+    <li className="question-index-item">
       <p>
-        Description: {question.title}
+        Title: {question.title}
         <br />Author: {question.author_id}
       </p>
     </li>
