@@ -22,8 +22,10 @@ class SessionForm extends React.Component {
     else {
       promise = this.props.login(user);
     }
-    promise.then(() => this.props.router.push('/'),
-      err => this.clearPassword());
+    promise.then(() => {
+      this.props.clearErrors();
+      this.props.router.push('/');
+    }, err => this.clearPassword());
   }
 
   clearPassword() {
