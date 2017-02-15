@@ -14,9 +14,11 @@
   },
   questions: {
     1: {
+      id: 1,
       title: "Line Up",
       body: "How do I line up on this queue?",
-      author_id: 1
+      author_id: 1,
+      answers_count: 2
     }
   },
   answers: {

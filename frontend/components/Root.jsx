@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './App';
 import SessionFormContainer from './session_form/session_form_container';
-
+import QuestionIndexContainer from './question/question_index_container';
 
 const Root = (props) => {
   const {store} = props;
@@ -19,6 +19,7 @@ const Root = (props) => {
     <Provider store = {store}>
       <Router history={hashHistory}>
         <Route path="/" component={ App }>
+          <IndexRoute component={ QuestionIndexContainer } />
           <Route path="/login"
             formType="logIn"
             component= {SessionFormContainer}
