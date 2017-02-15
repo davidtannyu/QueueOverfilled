@@ -8,7 +8,9 @@ export default class Greeting extends Component {
     if ( currentUser ) {
       component = [
           <li key="greeting-user"> Hi { currentUser.display_name }</li>,
-          <li key="logout-button"> <button onClick={logout}>Logout</button> </li>
+          <li key="logout-button">
+            <button className="logout-button" onClick={logout}>Logout</button>
+          </li>
         ];
     }
     else {
