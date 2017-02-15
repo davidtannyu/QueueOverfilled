@@ -40,7 +40,9 @@ class SessionForm extends React.Component {
   render() {
     const { formType, errors, loggedIn } = this.props;
     let display_name_field = null;
+    let buttonText = "Log In";
     if (formType === "signUp") {
+      buttonText = "Sign Up";
       display_name_field = (
         <div>
           <label htmlFor="display_name"><strong>Display Name</strong></label>
@@ -54,38 +56,40 @@ class SessionForm extends React.Component {
     let signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form";
     let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
     return (
-      <div className="session-form">
-        <div className="form-tabs">
-          <h1>
-            <div>
+      <div className="session-div">
+        <div className="form-tabs clearfix">
+            <div className="logIn-link">
               <Link className={logInClass} to="/login">
                 Log In
               </Link>
+            </div>
+            <div className="signUp-link">
               <Link className={signUpClass} to="/signUp">
                 Sign Up
               </Link>
             </div>
-          </h1>
         </div>
 
         { errors.map(el => <h4>{el}</h4>) }
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            {display_name_field}
-            <label htmlFor="email"><strong>Email</strong></label>
-            <br />
-            <input id="email" type="text"
-              onChange={this.handleField("email")}
-              value={this.state.email} />
-            <br />
-            <label htmlFor="password"><strong>Password</strong></label>
-            <br />
-            <input id="password" type="password"
-              onChange={this.handleField("password")}
-              value={this.state.password} />
-            <br />
-            <button>{formType}</button>
-          </form>
+        <div className="form-container">
+          <div className="session-form">
+            <form onSubmit={this.handleSubmit}>
+              {display_name_field}
+              <label htmlFor="email"><strong>Email</strong></label>
+              <br />
+              <input id="email" type="text"
+                onChange={this.handleField("email")}
+                value={this.state.email} />
+              <br />
+              <label htmlFor="password"><strong>Password</strong></label>
+              <br />
+              <input id="password" type="password"
+                onChange={this.handleField("password")}
+                value={this.state.password} />
+              <br />
+              <button>{buttonText}</button>
+            </form>
+          </div>
         </div>
     </div>
     );
