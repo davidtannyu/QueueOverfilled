@@ -9,8 +9,7 @@ export default function questionsReducer (state = {}, action) {
     case RECEIVE_QUESTIONS:
       return action.questions;
     case RECEIVE_QUESTION:
-      let newQuestion = { [action.question.id]: action.question};
-      return  Object.assign({}, state, newQuestion);
+      return action.question;
     case REMOVE_QUESTION:
       let newState = Object.assign({}, state);
       delete newState[action.questionId];

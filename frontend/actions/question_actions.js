@@ -14,7 +14,7 @@ export const receiveQuestions = (questions) => {
 
 export const fetchQuestions = () => dispatch => {
   return QuestionApiUtil.fetchQuestions()
-  .then(questions => dispatch( receiveQuestions(questions)),
+  .then(obj => dispatch( receiveQuestions(obj.questions)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 
@@ -27,19 +27,19 @@ export const receiveQuestion = (question) => {
 
 export const fetchQuestion = (id) => dispatch => {
   return QuestionApiUtil.fetchQuestion(id)
-  .then(question => dispatch( receiveQuestion(question)),
+  .then(obj => dispatch( receiveQuestion(obj.question)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 
 export const createQuestion = (question) => dispatch => {
   return QuestionApiUtil.createQuestion(question)
-  .then(question => dispatch( receiveQuestion(question)),
+  .then(obj => dispatch( receiveQuestion(obj.question)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 
 export const updateQuestion = (question) => dispatch => {
   return QuestionApiUtil.updateQuestion(question)
-  .then(question => dispatch( receiveQuestion(question)),
+  .then(obj => dispatch( receiveQuestion(obj.question)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 

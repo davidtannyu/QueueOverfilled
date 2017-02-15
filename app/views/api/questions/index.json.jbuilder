@@ -5,10 +5,3 @@ json.questions do
     end
   end
 end
-
-# json.answers do
-#   @questions.answers.each do |answer|
-#     json.set! answer.id do
-#
-#     end
-# end
