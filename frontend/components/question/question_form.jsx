@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link, hashHistory} from 'react-router';
+import TextEditor from '../text_editor';
 
 export default class QuestionForm extends Component {
   constructor(props) {
@@ -43,8 +44,7 @@ export default class QuestionForm extends Component {
               value={this.state.title} />
           </div>
           <div className="input-field">
-            <textarea id="body" type="text"
-              onChange={this.handleField("body")}
+            <TextEditor handleField={this.handleField}
               value={this.state.body} />
           </div>
           <button>{buttonText}</button>
