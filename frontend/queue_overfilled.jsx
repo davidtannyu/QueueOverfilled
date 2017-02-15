@@ -5,7 +5,7 @@ import Root from './components/Root';
 
 import * as SessionApiUtil from './util/session_api_util';
 import * as SessionActions from './actions/user_actions';
-
+import * as QuestionApiUtil from './util/question_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -18,5 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   window.session = SessionApiUtil;
   window.action = SessionActions;
+  window.question = QuestionApiUtil;
   ReactDOM.render(<Root store={store} />, root);
 });
