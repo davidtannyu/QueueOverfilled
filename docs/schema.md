@@ -23,6 +23,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 body        | text      | not null
+vote_count  | integer   | default 0
 author_id   | integer   | not null, foreign key (references users), indexed
 question_id | integer   | not null, foreign key (references questions), indexed
 

@@ -23,7 +23,14 @@
     3: {
       author_id: 1,
       question_id: 1,
+      vote_count: 214,
       body: "Get in the back"
+    },
+    4: {
+      author_id: 2,
+      question_id: 1,
+      vote_count: -24,
+      body: "You can cut in front of me"
     }
   },
   votes: {
@@ -33,8 +40,8 @@
       value: 1
     },
     36: {
-      author_id: 2,
-      answer_id: 3,
+      author_id: 1,
+      answer_id: 4,
       value: -1
     }
   }
