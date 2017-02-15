@@ -18,7 +18,35 @@ class Api::QuestionsController < ApplicationController
     if @question
       render :show
     else
-      render json: ["No such question"], status: 404
+      render json: ["Question not found"], status: 404
+    end
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if current_user
+      if @question.author_id == current_user.id
+        @question.update(question_params)
+        render :show
+      else
+        render json: ["Not authorized to update question"], status: 422
+      end
+    else
+      render json: ["Not logged in"], status: 422
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    if current_user
+      if @question.author_id == current_user.id
+        @question.destroy
+        render json: @question
+      else
+        render json: ["Not authorized to delete question"], status: 422
+      end
+    else
+      render json: ["Not logged in"], status: 422
     end
   end
 
