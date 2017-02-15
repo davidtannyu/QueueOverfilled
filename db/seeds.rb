@@ -12,4 +12,10 @@ User.create({
   display_name: "David Tan",
   email: "dt1041@nyu.edu",
   password: "111111"
-  })
+})
+
+User.create({
+  display_name: "Guest",
+  email: "guest@email.queueoverfilled.com",
+  password: "111111"
+})

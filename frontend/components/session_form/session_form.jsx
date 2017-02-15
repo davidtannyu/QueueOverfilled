@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleField = this.handleField.bind(this);
     this.clearPassword = this.clearPassword.bind(this);
+    this.logInAsGuest = this.logInAsGuest.bind(this);
   }
 
   handleSubmit(e) {
@@ -33,6 +34,10 @@ class SessionForm extends React.Component {
     return (e) => {
       this.setState( {[field]: e.target.value});
     };
+  }
+
+  logInAsGuest(e) {
+    this.setState({email: "guest@email.queueoverfilled.com", password: "111111"});
   }
 
   componentWillReceiveProps(newProps) {
@@ -60,9 +65,15 @@ class SessionForm extends React.Component {
     let logInErrors = errors.map((error,idx) => (
       <h4 className="error-text" key={idx}>{error}</h4>
     ));
+    let guestButton = (
+      <div>
+        <button onClick={this.logInAsGuest}>Login as a guest</button>
+      </div>
+    );
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
+      guestButton = null;
       display_name_field = (
         <div className="input-field">
           <label htmlFor="display_name"><strong>Display Name</strong></label>
@@ -75,7 +86,8 @@ class SessionForm extends React.Component {
               <h4 className="error-text" key={idx}>{el}</h4>
           ))}
         </div>
-    );}
+      );
+    }
 
 
 
@@ -123,6 +135,7 @@ class SessionForm extends React.Component {
                 <br />
               </div>
               <button>{buttonText}</button>
+              {guestButton}
             </form>
           </div>
         </div>

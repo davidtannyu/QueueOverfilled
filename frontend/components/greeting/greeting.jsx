@@ -7,7 +7,7 @@ export default class Greeting extends Component {
     let component;
     if ( currentUser ) {
       component = [
-          <li key="greeting-user"> Hi { currentUser.email }</li>,
+          <li key="greeting-user"> Hi { currentUser.display_name }</li>,
           <li key="logout-button"> <button onClick={logout}>Logout</button> </li>
         ];
     }
