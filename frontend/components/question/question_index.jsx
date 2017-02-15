@@ -11,7 +11,7 @@ export default class QuestionIndex extends Component {
   render() {
     let questions = Object.values(this.props.questions);
     return (
-      <div class="main-bar">
+      <div className="main-bar">
         <ul className="question-index-list">
           { questions.map (question => (
             <QuestionIndexItem key={question.id} question={question} />

@@ -7,7 +7,7 @@ const QuestionIndexItem = (props) => {
       <p>
         Answers: {question.answers_count}
         <br />Title: {question.title}
-        <br />Author: {question.author_id}
+        <br />Author: {question.author.display_name}
       </p>
     </li>
   );
