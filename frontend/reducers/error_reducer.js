@@ -8,7 +8,7 @@ const defaultState = {
   answer: {errors: []}
 };
 
-export default function usersReducer(state = defaultState, action ) {
+export default function errorsReducer(state = defaultState, action ) {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ERRORS:

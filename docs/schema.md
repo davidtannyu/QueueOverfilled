@@ -17,6 +17,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
+answers_count| integer | default 0
 
 ## answers
 column name | data type | details
@@ -33,5 +34,5 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 value       | integer   | default 0
-author_id   | integer   | not null, foreign key (references users), indexed
+voter_id    | integer   | not null, foreign key (references users), indexed
 answer_id   | integer   | not null, foreign key (references answers), indexed
