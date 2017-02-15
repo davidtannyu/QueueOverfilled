@@ -14,10 +14,15 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-    .then(() => {
-      this.props.router.push('/');
-    }, err => this.clearPassword());
+    let promise;
+    if (this.props.formType === "signUp") {
+      promise = this.props.signup(user);
+    }
+    else {
+      promise = this.props.login(user);
+    }
+    promise.then(() => this.props.router.push('/'),
+      err => this.clearPassword());
   }
 
   clearPassword() {
@@ -41,20 +46,40 @@ class SessionForm extends React.Component {
     const { formType, errors, loggedIn } = this.props;
     let display_name_field = null;
     let buttonText = "Log In";
+    let signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form";
+    let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
+    let passwordErrors = errors.filter( (error) => {
+      return error.split(" ")[0] === "Password";
+    });
+    let emailErrors = errors.filter( (error) => {
+      return error.split(" ")[0] === "Email";
+    });
+    let displayNameErrors = errors.filter( (error) => {
+      return error.split(" ")[0] === "Display";
+    });
+    let logInErrors = errors.map((error,idx) => (
+      <h4 className="error-text" key={idx}>{error}</h4>
+    ));
     if (formType === "signUp") {
       buttonText = "Sign Up";
+      logInErrors = null;
       display_name_field = (
-        <div>
+        <div className="input-field">
           <label htmlFor="display_name"><strong>Display Name</strong></label>
           <br />
           <input id="display_name" type="text"
             onChange={this.handleField("display_name")}
             value={this.state.display_name} />
           <br />
+          {displayNameErrors.map((el, idx) => (
+              <h4 className="error-text" key={idx}>{el}</h4>
+          ))}
         </div>
     );}
-    let signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form";
-    let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
+
+
+
+
     return (
       <div className="session-div">
         <div className="form-tabs clearfix">
@@ -70,23 +95,33 @@ class SessionForm extends React.Component {
             </div>
         </div>
 
-        { errors.map(el => <h4>{el}</h4>) }
         <div className="form-container">
           <div className="session-form">
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
               <label htmlFor="email"><strong>Email</strong></label>
               <br />
-              <input id="email" type="text"
-                onChange={this.handleField("email")}
-                value={this.state.email} />
-              <br />
+              <div className="input-field">
+                <input id="email" type="text"
+                  onChange={this.handleField("email")}
+                  value={this.state.email} />
+                {emailErrors.map((el, idx) => (
+                    <h4 className="error-text" key={idx}>{el}</h4>
+                  ))}
+                {logInErrors}
+                <br />
+              </div>
               <label htmlFor="password"><strong>Password</strong></label>
               <br />
-              <input id="password" type="password"
-                onChange={this.handleField("password")}
-                value={this.state.password} />
-              <br />
+              <div className="input-field">
+                <input id="password" type="password"
+                  onChange={this.handleField("password")}
+                  value={this.state.password} />
+                {passwordErrors.map((el, idx) => (
+                  <h4 className="error-text" key={idx}>{el}</h4>
+                ))}
+                <br />
+              </div>
               <button>{buttonText}</button>
             </form>
           </div>
