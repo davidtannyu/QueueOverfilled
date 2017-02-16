@@ -45,6 +45,7 @@
   font-size: 14px;
   border-color: #07c;
   box-shadow: inset 0 1px 0 #66bfff;
+  margin: 3px;
 }
 
 .blue-button:hover {
@@ -52,4 +53,15 @@
   border-color: #005999;
   box-shadow: inset 0 1px 0 #3af;
   cursor: pointer;
+}
+
+
+.blue-button:focus,
+.blue-button:active,
+.blue-button.active,
+.blue-button:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
