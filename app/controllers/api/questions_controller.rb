@@ -1,7 +1,7 @@
 class Api::QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.includes(:author).all
   end
 
   def create
@@ -14,7 +14,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.includes(:author).find(params[:id])
     if @question
       render :show
     else
@@ -23,7 +23,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
+    @question = Question.includes(:author).find(params[:id])
     if current_user
       if @question.author_id == current_user.id
         @question.update(question_params)

@@ -5,8 +5,9 @@ const QuestionIndexItem = (props) => {
   return (
     <li className="question-index-item">
       <p>
-        Title: {question.title}
-        <br />Author: {question.author_id}
+        Answers: {question.answers_count}
+        <br />Title: {question.title}
+        <br />Author: {question.author.display_name}
       </p>
     </li>
   );
