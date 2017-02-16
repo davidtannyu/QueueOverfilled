@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  display_name    :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   validates :display_name, :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -39,4 +52,10 @@ class User < ActiveRecord::Base
     user = User.find_by(email: credentials[:email])
     user && user.is_password?(credentials[:password]) ? user : nil
   end
+
+  has_many :questions,
+  foreign_key: :author_id
+
+  has_many :answers,
+  foreign_key: :author_id
 end

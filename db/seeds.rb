@@ -22,7 +22,7 @@ guest = User.create({
 
 Question.destroy_all
 
-Question.create({
+lifeQuestion = Question.create({
   title: "Life's Meaning",
   body: "What is the meaning of life?",
   author_id: david.id
@@ -39,3 +39,12 @@ Question.create({
   body: "Hi, I'm new here. How do I sign up?",
   author_id: guest.id
 })
+
+
+Answer.destroy_all
+
+Answer.create({
+  body: "42",
+  author_id: david.id,
+  question_id: lifeQuestion.id
+  })
