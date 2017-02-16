@@ -54,8 +54,10 @@ class User < ActiveRecord::Base
   end
 
   has_many :questions,
-  foreign_key: :author_id
+  foreign_key: :author_id,
+  dependent: :destroy
 
   has_many :answers,
-  foreign_key: :author_id
+  foreign_key: :author_id,
+  dependent: :destroy
 end

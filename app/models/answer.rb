@@ -12,11 +12,13 @@
 #
 
 class Answer < ActiveRecord::Base
-  validates :body, :author_id, :question_id, presence: true
+  validates :body, :author, :question, presence: true
 
   belongs_to :question,
-  counter_cache: true
+  counter_cache: true,
+  inverse_of: :answers
 
   belongs_to :author,
-  class_name: "User"
+  class_name: "User",
+  inverse_of: :answers
 end
