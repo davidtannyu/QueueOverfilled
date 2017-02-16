@@ -20,3 +20,16 @@ div.question-form .text-editor {
   height: 200px;
   width: 500px;
 }
+
+div.question-form .input-field {
+  position: relative;
+}
+
+div.question-form .error-text {
+  position: absolute;
+  color: white;
+  bottom: -20px;
+  width: 200px;
+  display: inline-block;
+  background-color: red;
+}
