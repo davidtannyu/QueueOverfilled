@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const App = (props) => {
   const { children } = props;
   return (
-    <div>
+    <div >
       <div className="navbar">
         <div className="navbar-left">
           <h1 className="logo">
@@ -18,7 +18,7 @@ const App = (props) => {
           <GreetingContainer />
         </div>
       </div>
-      <div>
+      <div className="children">
         { children }
       </div>
     </div>

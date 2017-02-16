@@ -9,14 +9,20 @@ export default class Greeting extends Component {
       component = [
           <li key="greeting-user"> Hi { currentUser.display_name }</li>,
           <li key="logout-button">
-            <button className="logout-button" onClick={logout}>Logout</button>
+            <button className="logout-button blue-button" onClick={logout}>
+              Logout
+            </button>
           </li>
         ];
     }
     else {
       component = [
-        <li className="login-button" key="login-button"> <Link to='/login'>Log In</Link> </li>,
-        <li className="signup-button" key="signup-button"> <Link to='/signup'>Sign Up</Link> </li>
+        <li className="login-button" key="login-button">
+          <Link to='/login'>Log In</Link>
+        </li>,
+        <li className="signup-button blue-button" key="signup-button">
+          <Link to='/signup'>Sign Up</Link>
+        </li>
       ];
     }
     return (

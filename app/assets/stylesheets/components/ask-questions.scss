@@ -1,0 +1,22 @@
+div.question-form {
+  display: flex;
+  padding: 50px;
+}
+
+div.question-form strong {
+  font-weight: bold;
+}
+
+div.question-form div.input-field {
+  margin: 20px;
+}
+
+div.question-form input.title {
+  width: 92%;
+  padding-left: 3px;
+}
+
+div.question-form .text-editor {
+  height: 200px;
+  width: 500px;
+}
