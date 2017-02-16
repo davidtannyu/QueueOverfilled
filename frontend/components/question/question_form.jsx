@@ -15,10 +15,11 @@ export default class QuestionForm extends Component {
     const question = Object.assign({}, this.state,
         { author_id: this.props.currentUser.id});
     this.props.createQuestion(question)
-    .then( () => {
+    .then( (action) => {
       this.setState({title: "", body: ""});
       this.props.clearErrors();
-      hashHistory.push("/");
+      const questionId = Object.keys(action.question)[0];
+      hashHistory.push(`/questions/${questionId}`);
     });
   }
 

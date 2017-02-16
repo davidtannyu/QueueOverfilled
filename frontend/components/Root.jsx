@@ -6,6 +6,8 @@ import App from './App';
 import SessionFormContainer from './session_form/session_form_container';
 import QuestionIndexContainer from './question/question_index_container';
 import AskQuestionContainer from './question/ask_question_container';
+import QuestionContainer from './question/question_container';
+
 
 const Root = (props) => {
   const {store} = props;
@@ -38,6 +40,8 @@ const Root = (props) => {
           <Route path="/questions/ask"
             component={AskQuestionContainer}
             onEnter={ensureLoggedIn} />
+          <Route path="/questions/:id"
+            component={QuestionContainer} />
         </Route>
       </Router>
     </Provider>
