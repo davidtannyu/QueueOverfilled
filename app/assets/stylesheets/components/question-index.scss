@@ -17,9 +17,6 @@
   padding: 10px;
 }
 
-.question-index-item div {
-}
-
 .question-index-item .unanswered {
   text-align: center;
   padding-bottom: 10px;
@@ -31,7 +28,12 @@
   width: 50%;
 }
 
-
 .question-index-item .last-update {
   margin-left: 50%;
+}
+
+.main-bar > a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30%;
 }
