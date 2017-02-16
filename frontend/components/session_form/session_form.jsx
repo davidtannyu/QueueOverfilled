@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
     }
     promise.then(() => {
       this.props.clearErrors();
-      this.props.router.push('/');
+      this.props.router.goBack();
     }, err => this.clearPassword());
   }
 
@@ -69,7 +69,9 @@ class SessionForm extends React.Component {
     ));
     let guestButton = (
       <div>
-        <button onClick={this.logInAsGuest}>Login as a guest</button>
+        <button className="blue-button" onClick={this.logInAsGuest}>
+          Login as a guest
+        </button>
       </div>
     );
     if (formType === "signUp") {
@@ -82,6 +84,7 @@ class SessionForm extends React.Component {
           <br />
           <input id="display_name" type="text"
             onChange={this.handleField("display_name")}
+            placeholder="J. Doe"
             value={this.state.display_name} />
           <br />
           {displayNameErrors.map((el, idx) => (
@@ -118,6 +121,7 @@ class SessionForm extends React.Component {
               <div className="input-field">
                 <input id="email" type="text"
                   onChange={this.handleField("email")}
+                  placeholder="you@email.com"
                   value={this.state.email} />
                 {emailErrors.map((el, idx) => (
                     <h4 className="error-text" key={idx}>{el}</h4>
@@ -130,13 +134,14 @@ class SessionForm extends React.Component {
               <div className="input-field">
                 <input id="password" type="password"
                   onChange={this.handleField("password")}
+                  placeholder="******"
                   value={this.state.password} />
                 {passwordErrors.map((el, idx) => (
                   <h4 className="error-text" key={idx}>{el}</h4>
                 ))}
                 <br />
               </div>
-              <button>{buttonText}</button>
+              <button className="blue-button">{buttonText}</button>
               {guestButton}
             </form>
           </div>
