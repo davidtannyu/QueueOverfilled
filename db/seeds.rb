@@ -14,14 +14,28 @@ david = User.create({
   password: "111111"
 })
 
-User.create({
+guest = User.create({
   display_name: "Guest",
   email: "guest@email.queueoverfilled.com",
   password: "111111"
 })
 
+Question.destroy_all
+
 Question.create({
   title: "Life's Meaning",
   body: "What is the meaning of life?",
   author_id: david.id
+})
+
+Question.create({
+  title: "Pokeman",
+  body: "How many pokeman are there?",
+  author_id: david.id
+})
+
+Question.create({
+  title: "How do I sign up?",
+  body: "Hi, I'm new here. How do I sign up?",
+  author_id: guest.id
 })
