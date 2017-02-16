@@ -5,7 +5,7 @@ import TextEditor from '../text_editor';
 export default class QuestionForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", body: ""};
+    this.state = this.props.question;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleField = this.handleField.bind(this);
   }
@@ -14,8 +14,14 @@ export default class QuestionForm extends Component {
     e.preventDefault();
     const question = Object.assign({}, this.state,
         { author_id: this.props.currentUser.id});
-    this.props.createQuestion(question)
-    .then( (action) => {
+    let promise;
+    if (this.props.formType === "new") {
+      promise = this.props.createQuestion(question);
+    }
+    else {
+      promise = this.props.updateQuestion(question);
+    }
+    promise.then( (action) => {
       this.setState({title: "", body: ""});
       this.props.clearErrors();
       const questionId = Object.keys(action.question)[0];
@@ -30,8 +36,9 @@ export default class QuestionForm extends Component {
   }
 
   render() {
-    let buttonText = "Ask Question";
-    const { errors } = this.props;
+    const { errors, formType } = this.props;
+    let buttonText =
+    (formType === "new") ? "Ask Question" : "Edit Question";
     let titleErrors = errors.filter( (error) => {
       return error.split(" ")[0] === "Title";
     });
