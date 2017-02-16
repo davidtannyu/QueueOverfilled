@@ -1,0 +1,44 @@
+.question-index-list {
+  list-style: none;
+}
+
+.question-index-list a {
+  margin-left: 0;
+  color: #07C;
+}
+
+.question-index-list a:hover {
+  color: #3af;
+}
+
+.question-index-item {
+  display: flex;
+  border-bottom: 1px solid #e4e6e8;
+  padding: 10px;
+}
+
+.question-index-item .unanswered {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.question-index-item .summary {
+  padding-left: 10px;
+  width: 50%;
+}
+
+.question-index-item .last-update {
+  margin-left: 50%;
+}
+
+.main-bar > a {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30%;
+}
+
+.main-bar {
+  padding: 10px;
+}

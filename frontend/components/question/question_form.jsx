@@ -33,14 +33,14 @@ export default class QuestionForm extends Component {
     let buttonText = "Ask Question";
     const { errors } = this.props;
     return (
-      <div>
+      <div className="question-form">
         {errors.map((el, idx) => (
             <h4 className="error-text" key={idx}>{el}</h4>
           ))}
         <form onSubmit={this.handleSubmit} className="ask-question-form">
           <div className="input-field">
             <label htmlFor="title"><strong>Title</strong></label>
-            <input id="title" type="text"
+            <input id="title" type="text" className="title"
               onChange={this.handleField("title")}
               value={this.state.title} />
           </div>
@@ -48,7 +48,7 @@ export default class QuestionForm extends Component {
             <TextEditor handleField={this.handleField}
               value={this.state.body} />
           </div>
-          <button>{buttonText}</button>
+          <button className="blue-button">{buttonText}</button>
         </form>
       </div>
     );
