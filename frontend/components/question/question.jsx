@@ -6,6 +6,7 @@ export default class Question extends Component {
   constructor(props) {
     super(props);
     this.deleteQuestion = this.deleteQuestion.bind(this);
+    this.editForm = this.editForm.bind(this);
   }
 
   componentDidMount() {
@@ -18,13 +19,29 @@ export default class Question extends Component {
     .then(hashHistory.push("/"));
   }
 
+  editForm(e) {
+    e.preventDefault();
+    const questionId = this.props.question.id;
+    hashHistory.push(`/questions/${questionId}/edit`);
+  }
+
   render() {
     const {currentUser, question, author} = this.props;
     let deleteButton = null;
+    let editButton = null;
     if (currentUser && author && currentUser.id === author.id) {
       deleteButton = (
         <div>
-          <button onClick={this.deleteQuestion}> {"delete"} </button>
+          <button className="blue-button" onClick={this.deleteQuestion}>
+            {"delete"}
+          </button>
+        </div>
+      );
+      editButton = (
+        <div>
+          <button className="blue-button" onClick={this.editForm}>
+            edit
+          </button>
         </div>
       );
     }
@@ -38,6 +55,7 @@ export default class Question extends Component {
           </Link>
         </div>
         <QuestionDetail question={question} author={author}/>
+        {editButton}
         {deleteButton}
       </div>
     );

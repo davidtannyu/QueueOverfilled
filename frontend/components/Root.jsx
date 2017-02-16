@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './App';
 import SessionFormContainer from './session_form/session_form_container';
 import QuestionIndexContainer from './question/question_index_container';
-import AskQuestionContainer from './question/ask_question_container';
+import QuestionFormContainer from './question/question_form_container';
 import QuestionContainer from './question/question_container';
 
 
@@ -38,10 +38,15 @@ const Root = (props) => {
             component= {SessionFormContainer}
             onEnter={redirectIfLoggedIn}  />
           <Route path="/questions/ask"
-            component={AskQuestionContainer}
+            formType="new"
+            component={QuestionFormContainer}
             onEnter={ensureLoggedIn} />
           <Route path="/questions/:id"
             component={QuestionContainer} />
+          <Route path="/questions/:id/edit"
+            formType="edit"
+            component={QuestionFormContainer}
+            onEnter={ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>
