@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Author from "./author";
+import { Link } from 'react-router';
 
 export default class Question extends Component {
 
@@ -10,7 +11,14 @@ export default class Question extends Component {
   render() {
     const {question, author} = this.props;
     return (
-      <div>
+      <div className="question-show">
+        <div className="header">
+          <Link to="/questions/ask">
+            <p className="blue-button">
+              Ask Question
+            </p>
+          </Link>
+        </div>
         <QuestionDetail question={question} author={author}/>
       </div>
     );
