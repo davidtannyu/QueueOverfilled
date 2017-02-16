@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Author from "./author";
 
 export default class Question extends Component {
 
@@ -23,10 +23,10 @@ const QuestionDetail = (props) => {
     return null;
   }
   return (
-    <div>
+    <div className="question-detail">
       <h4 className="question-title">{question.title}</h4>
       <p>{question.body}</p>
-      <p>{author.display_name}</p>
+      <Author author={author}/>
     </div>
   );
 };
