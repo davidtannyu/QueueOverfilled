@@ -32,21 +32,30 @@ export default class QuestionForm extends Component {
   render() {
     let buttonText = "Ask Question";
     const { errors } = this.props;
+    let titleErrors = errors.filter( (error) => {
+      return error.split(" ")[0] === "Title";
+    });
+    let bodyErrors = errors.filter( (error) => {
+      return error.split(" ")[0] === "Body";
+    });
     return (
       <div className="question-form">
-        {errors.map((el, idx) => (
-            <h4 className="error-text" key={idx}>{el}</h4>
-          ))}
         <form onSubmit={this.handleSubmit} className="ask-question-form">
           <div className="input-field">
             <label htmlFor="title"><strong>Title</strong></label>
             <input id="title" type="text" className="title"
               onChange={this.handleField("title")}
               value={this.state.title} />
+            {titleErrors.map((el, idx) => (
+                <h4 className="error-text" key={idx}>{el}</h4>
+            ))}
           </div>
           <div className="input-field">
             <TextEditor handleField={this.handleField}
               value={this.state.body} />
+            {bodyErrors.map((el, idx) => (
+                <h4 className="error-text" key={idx}>{el}</h4>
+            ))}
           </div>
           <button className="blue-button">{buttonText}</button>
         </form>
