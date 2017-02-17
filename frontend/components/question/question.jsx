@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Author from "./author";
 import { Link, hashHistory } from 'react-router';
+import AnswerIndexContainer from '../answer/answer_index_container';
+import AnswerFormContainer from '../answer/answer_form_container';
 
 export default class Question extends Component {
   constructor(props) {
@@ -29,6 +31,7 @@ export default class Question extends Component {
     const {currentUser, question, author} = this.props;
     let deleteButton = null;
     let editButton = null;
+    let answerForm = null;
     if (currentUser && author && currentUser.id === author.id) {
       deleteButton = (
         <div>
@@ -45,6 +48,13 @@ export default class Question extends Component {
         </div>
       );
     }
+    if (question) {
+      answerForm = (
+        <div>
+          <AnswerFormContainer formType="new" questionId={question.id} />
+        </div>
+      );
+    }
     return (
       <div className="question-show">
         <div className="header">
@@ -57,6 +67,8 @@ export default class Question extends Component {
         <QuestionDetail question={question} author={author}/>
         {editButton}
         {deleteButton}
+        <AnswerIndexContainer />
+        {answerForm}
       </div>
     );
   }

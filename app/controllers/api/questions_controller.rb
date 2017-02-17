@@ -14,7 +14,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.includes(:author).find(params[:id])
+    @question = Question.includes(:author, :answers, :answers_authors).find(params[:id])
     if @question
       render :show
     else
