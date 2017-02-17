@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import usersReducer from './user_reducer';
 import errorsReducer from './error_reducer';
 import questionsReducer from './question_reducer';
+import answersReducer from './answer_reducer'
 
 const rootReducer = combineReducers({
   currentUser: usersReducer,
   forms: errorsReducer,
-  questions: questionsReducer
+  questions: questionsReducer,
+  answers: answersReducer
 });
 
 export default rootReducer;

@@ -1,5 +1,6 @@
 import * as QuestionApiUtil from '../util/question_api_util';
 import { receiveErrors } from './error_actions';
+import { receiveAnswers } from './answer_actions';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
@@ -27,7 +28,10 @@ export const receiveQuestion = (question) => {
 
 export const fetchQuestion = (id) => dispatch => {
   return QuestionApiUtil.fetchQuestion(id)
-  .then(obj => dispatch( receiveQuestion(obj.question)),
+  .then(obj => {
+    dispatch( receiveQuestion(obj.question));
+    dispatch( receiveAnswers(obj.answers));
+  },
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 
