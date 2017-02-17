@@ -12,7 +12,6 @@ export default class AnswerForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     const question_id = this.props.questionId;
     const answer = Object.assign({}, this.state,
         { author_id: this.props.currentUser.id,
@@ -27,7 +26,6 @@ export default class AnswerForm extends Component {
     promise.then( (action) => {
       this.setState({body: ""});
       this.props.clearErrors();
-      hashHistory.push(`/questions/${question_id}`);
     });
   }
 

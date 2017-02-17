@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import AnswerIndex from './answer_index';
+import { deleteAnswer } from '../../actions/answer_actions';
 
 const mapStateToProps = state => {
   return {
@@ -8,7 +9,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  deleteAnswer: (id) => dispatch(deleteAnswer(id))
 });
 
 export default connect(
