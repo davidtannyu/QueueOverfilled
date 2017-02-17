@@ -13,6 +13,7 @@
 
 class Answer < ActiveRecord::Base
   validates :body, :author, :question, presence: true
+  validates :body, length: { minimum: 30 }
 
   belongs_to :question,
   counter_cache: true,

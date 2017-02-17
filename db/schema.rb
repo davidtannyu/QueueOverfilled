@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216220835) do
+ActiveRecord::Schema.define(version: 20170217141629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string   "body",                    null: false
+    t.text     "body",                    null: false
     t.integer  "vote_count",  default: 0
     t.integer  "author_id",               null: false
     t.integer  "question_id",             null: false

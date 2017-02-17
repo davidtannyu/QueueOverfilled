@@ -13,6 +13,8 @@
 
 class Question < ActiveRecord::Base
   validates :title, :body, :author, presence: true
+  validates :title, length: { minimum: 15 }
+  validates :body, length: { minimum: 30 }
 
   belongs_to :author,
   class_name: "User",
