@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Author from "./author";
 import { Link, hashHistory } from 'react-router';
+import AnswerIndexContainer from '../answer/answer_index_container';
 
 export default class Question extends Component {
   constructor(props) {
@@ -55,6 +56,7 @@ export default class Question extends Component {
           </Link>
         </div>
         <QuestionDetail question={question} author={author}/>
+        <AnswerIndexContainer />
         {editButton}
         {deleteButton}
       </div>
