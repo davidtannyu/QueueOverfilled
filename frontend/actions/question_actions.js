@@ -30,7 +30,11 @@ export const fetchQuestion = (id) => dispatch => {
   return QuestionApiUtil.fetchQuestion(id)
   .then(obj => {
     dispatch( receiveQuestion(obj.question));
-    dispatch( receiveAnswers(obj.answers));
+    let answers = obj.answers;
+    if (!answers) {
+      answers = {};
+    }
+    dispatch( receiveAnswers(answers));
   },
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
