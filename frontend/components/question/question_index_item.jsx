@@ -7,7 +7,7 @@ const QuestionIndexItem = (props) => {
   return (
     <li >
       <div className="question-index-item">
-          <div className={answerClass}>
+          <div className={`answer-count ${answerClass}`}>
           {question.answers_count}
           <br />answers
           </div>
