@@ -45,6 +45,7 @@ lifeQuestion = Question.create({
   body: "I've been pondering this question for a long time.
   This question has had me perplexed and I'm quite sure that there are others
   who also wonder about this question. What is the meaning of life?",
+
   author_id: david.id
 })
 
@@ -92,3 +93,4 @@ Answer.create ({
   author_id: smartie.id,
   question_id: lifeQuestion.id
   })
+
