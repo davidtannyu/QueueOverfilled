@@ -20,24 +20,17 @@ export default class AnswerIndex extends Component {
 
 
 const AnswerIndexItem = (props) => {
-  let { answer, deleteAnswer } = props;
-  const editForm = (e) => {
-      e.preventDefault();
-      const questionId = this.props.question.id;
-      hashHistory.push(`/questions/${questionId}/edit`);
+  let { answer } = props;
+  let deleteButton = null;
+  const deleteAnswer = (e) => {
+    e.preventDefault();
+    props.deleteAnswer(answer.id);
   };
-  if (currentUser && answer && currentUser.id === answer.author_id) {
+  if (currentUser && currentUser.id === answer.author.id) {
     deleteButton = (
       <div>
         <button className="blue-button" onClick={deleteAnswer}>
           {"delete"}
-        </button>
-      </div>
-    );
-    editButton = (
-      <div>
-        <button className="blue-button" onClick={editForm}>
-          edit
         </button>
       </div>
     );
@@ -54,6 +47,7 @@ const AnswerIndexItem = (props) => {
         <div className="answer-author">
           {answer.author.display_name}
         </div>
+        {deleteButton}
       </div>
     </li>
   );
