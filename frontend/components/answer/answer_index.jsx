@@ -10,7 +10,8 @@ export default class AnswerIndex extends Component {
         <ul className="answer-index-list">
           { answers.map (answer => (
             <AnswerIndexItem key={answer.id} answer={answer}
-              deleteAnswer={this.props.deleteAnswer} />
+              deleteAnswer={this.props.deleteAnswer}
+              currentUser={this.props.currentUser} />
           ))}
         </ul>
       </div>
@@ -20,7 +21,7 @@ export default class AnswerIndex extends Component {
 
 
 const AnswerIndexItem = (props) => {
-  let { answer } = props;
+  let { answer, currentUser } = props;
   let deleteButton = null;
   const deleteAnswer = (e) => {
     e.preventDefault();

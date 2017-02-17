@@ -4,7 +4,8 @@ import { deleteAnswer } from '../../actions/answer_actions';
 
 const mapStateToProps = state => {
   return {
-  answers: state.answers
+  answers: state.answers,
+  currentUser: state.currentUser
   };
 };
 
