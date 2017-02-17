@@ -48,7 +48,7 @@ export default class Question extends Component {
         </div>
       );
     }
-    if (question) {
+    if (question && currentUser) {
       answerForm = (
         <div>
           <AnswerFormContainer formType="new" questionId={question.id} />
