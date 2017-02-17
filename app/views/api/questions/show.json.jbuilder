@@ -7,9 +7,13 @@ json.question do
   end
 end
 
-# json.answers do
-#   @questions.answers.each do |answer|
-#     json.set! answer.id do
-#
-#     end
-# end
+json.answers do
+  @question.answers.each_with_index do |answer, idx|
+    json.set! answer.id do
+      json.partial! "api/answers/answer", answer: answer
+      json.author do
+        json.partial! "api/users/user", user: @question.answers_authors[idx]
+      end
+    end
+  end
+end

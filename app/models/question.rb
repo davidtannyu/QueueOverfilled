@@ -22,4 +22,7 @@ class Question < ActiveRecord::Base
   inverse_of: :questions
 
   has_many :answers, dependent: :destroy
+  has_many :answers_authors,
+  through: :answers,
+  source: :author
 end
