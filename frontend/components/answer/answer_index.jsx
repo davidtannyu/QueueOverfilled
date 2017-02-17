@@ -35,9 +35,6 @@ const AnswerIndexItem = (props) => {
       </div>
     );
   }
-  if (!answer) {
-    return (<div></div>);
-  }
   return (
     <li >
       <div className="answer-index-item">
