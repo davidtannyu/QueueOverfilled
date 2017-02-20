@@ -76,6 +76,11 @@ class SessionForm extends React.Component {
     );
     let topText = "QueueOverfilled is part of a growing community of Q&As!";
     let privacyPolicy = "";
+    let bottomText = (
+      <p>
+        Don't have an account? <a href="#">Sign up</a>
+      </p>
+    );
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
@@ -100,6 +105,11 @@ class SessionForm extends React.Component {
           By registering, you agree to the <a href="#">privacy policy</a> and
           <br />
           <a href="#">terms of service</a>.
+        </p>
+      );
+      bottomText = (
+        <p>
+          Already have an account? <a href="#">Sign up</a>
         </p>
       );
     }
@@ -164,6 +174,13 @@ class SessionForm extends React.Component {
               {guestButton}
               {privacyPolicy}
             </form>
+          </div>
+          <div>
+            <p>
+              {bottomText}
+            <br />
+              Are you an employer? <a href="#"> Log in on Talent </a>
+            </p>
           </div>
         </div>
     </div>
