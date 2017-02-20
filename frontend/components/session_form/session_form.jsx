@@ -132,7 +132,6 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
               <label htmlFor="email"><strong>Email</strong></label>
-              <br />
               <div className="input-field">
                 <input id="email" type="text"
                   onChange={this.handleField("email")}
@@ -142,10 +141,8 @@ class SessionForm extends React.Component {
                     <h4 className="error-text" key={idx}>{el}</h4>
                   ))}
                 {logInErrors}
-                <br />
               </div>
               <label htmlFor="password"><strong>Password</strong></label>
-              <br />
               <div className="input-field">
                 <input id="password" type="password"
                   onChange={this.handleField("password")}
@@ -154,7 +151,6 @@ class SessionForm extends React.Component {
                 {passwordErrors.map((el, idx) => (
                   <h4 className="error-text" key={idx}>{el}</h4>
                 ))}
-                <br />
               </div>
               <button className="blue-button">{buttonText}</button>
               {guestButton}
