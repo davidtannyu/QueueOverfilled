@@ -81,6 +81,7 @@ class SessionForm extends React.Component {
         Don't have an account? <Link to="/">Sign up</Link>
       </div>
     );
+    let extraText = "";
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
@@ -112,6 +113,7 @@ class SessionForm extends React.Component {
           Already have an account? <Link to="/login">Log in</Link>
         </div>
       );
+      extraText = " (required, but never shown)";
     }
 
 
@@ -149,7 +151,7 @@ class SessionForm extends React.Component {
             </div>
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
-              <label htmlFor="email"><strong>Email</strong></label>
+              <label htmlFor="email"><strong>Email{extraText}</strong></label>
               <div className="input-field">
                 <input id="email" type="text"
                   onChange={this.handleField("email")}
