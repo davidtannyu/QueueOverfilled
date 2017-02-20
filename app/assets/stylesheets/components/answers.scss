@@ -1,0 +1,49 @@
+.answer-index-list {
+  padding-top: 10px;
+}
+
+.answer-index-item {
+  padding: 10px;
+  border-bottom: 1px solid #e4e6e8;
+}
+
+.answer-author {
+  text-align: right;
+}
+
+.answer-index-list a {
+  color: #07C;
+}
+
+.answer-index-list a:hover {
+  color: #3af;
+}
+
+.answer-form {
+  font-family: Arial;
+}
+
+.text-editor {
+  resize: none;
+  height: 200px;
+  width: 600px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.answer-form .privacy-text {
+  margin-top: 15px;
+}
+
+.answer-form .privacy-text a {
+  color: #07C;
+}
+
+.answer-form .privacy-text a:hover {
+  color: #3af;
+}
+
+.answer-form .space {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}

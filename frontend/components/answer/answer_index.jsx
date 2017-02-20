@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+
 
 export default class AnswerIndex extends Component {
 
@@ -43,7 +44,9 @@ const AnswerIndexItem = (props) => {
           {answer.body}
         </div>
         <div className="answer-author">
-          {answer.author.display_name}
+          <Link to={`/users/${answer.author.id}`}>
+            {answer.author.display_name}
+          </Link>
         </div>
         {deleteButton}
       </div>
