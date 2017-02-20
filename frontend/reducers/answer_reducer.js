@@ -2,6 +2,8 @@ import {
   RECEIVE_ANSWERS,
   RECEIVE_ANSWER,
   REMOVE_ANSWER } from '../actions/answer_actions';
+import { RESET_DEFAULT } from '../actions/loading';
+
 
 export default function answersReducer (state = {}, action) {
   Object.freeze(state);
@@ -14,6 +16,8 @@ export default function answersReducer (state = {}, action) {
       let newState = Object.assign({}, state);
       delete newState[action.answerId];
       return newState;
+    case RESET_DEFAULT:
+      return {};
     default:
       return state;
   }

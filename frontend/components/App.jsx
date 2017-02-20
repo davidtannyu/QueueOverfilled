@@ -1,9 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import GreetingContainer from './greeting/greeting_container';
 import { Link } from 'react-router';
 
 const App = (props) => {
-  const { children } = props;
+  const { children, loading } = props;
+  let loadingIcon = null;
+  if (loading) {
+    loadingIcon = (<div className="loader"></div>);
+  }
   return (
     <div >
       <div className="navbar">
@@ -19,6 +24,7 @@ const App = (props) => {
         </div>
       </div>
       <div className="children">
+        {loadingIcon}
         { children }
       </div>
       <div className="footer">
@@ -41,4 +47,10 @@ const App = (props) => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return ({
+    loading: state.loading
+  });
+};
+
+export default connect(mapStateToProps)(App);
