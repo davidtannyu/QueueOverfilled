@@ -24,6 +24,7 @@ export default class AnswerIndex extends Component {
 const AnswerIndexItem = (props) => {
   let { answer, currentUser } = props;
   let deleteButton = null;
+  let editButton = null;
   const deleteAnswer = (e) => {
     e.preventDefault();
     props.deleteAnswer(answer.id);
@@ -33,6 +34,13 @@ const AnswerIndexItem = (props) => {
       <div>
         <button className="text-button" onClick={deleteAnswer}>
           {"delete"}
+        </button>
+      </div>
+    );
+    editButton = (
+      <div>
+        <button className="text-button">
+          edit
         </button>
       </div>
     );
@@ -48,7 +56,10 @@ const AnswerIndexItem = (props) => {
             {answer.author.display_name}
           </Link>
         </div>
-        {deleteButton}
+        <div className="inline-buttons">
+          {editButton}
+          {deleteButton}
+        </div>
       </div>
     </li>
   );
