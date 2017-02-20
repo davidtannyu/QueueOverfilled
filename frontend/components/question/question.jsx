@@ -65,8 +65,10 @@ export default class Question extends Component {
           </Link>
         </div>
         <QuestionDetail question={question} author={author}/>
-        {editButton}
-        {deleteButton}
+        <div className="text-buttons">
+          {editButton}
+          {deleteButton}
+        </div>
         <AnswerIndexContainer />
         {answerForm}
       </div>
