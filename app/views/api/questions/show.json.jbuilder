@@ -11,8 +11,12 @@ json.answers do
   @question.answers.each_with_index do |answer, idx|
     json.set! answer.id do
       json.partial! "api/answers/answer", answer: answer
-      json.author do
-        json.partial! "api/users/user", user: @question.answers_authors[idx]
+      @question.answers_authors.each do |author|
+        if (author.id == answer.author_id)
+          json.author do
+            json.partial! "api/users/user", user: author
+          end
+        end
       end
     end
   end
