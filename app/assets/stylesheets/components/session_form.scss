@@ -145,3 +145,31 @@
   padding: 5px;
   bottom: 10px;
 }
+
+.session-div .privacy-text {
+  font-size: 12px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.session-div .privacy-text > a {
+  color: #07C;
+}
+
+.session-div .privacy-text > a:hover {
+  color: #1da9da;
+}
+
+.session-div .session-button {
+  background: #07C;
+  color: white;
+  font-size: 80%;
+  width: 120px;
+  border: 0;
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-left: 55%;
+  margin-bottom: 20px;
+  text-align: center;
+}

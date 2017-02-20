@@ -69,12 +69,13 @@ class SessionForm extends React.Component {
     ));
     let guestButton = (
       <div>
-        <button className="blue-button" onClick={this.logInAsGuest}>
+        <button className="session-button" onClick={this.logInAsGuest}>
           Login as a guest
         </button>
       </div>
     );
     let topText = "QueueOverfilled is part of a growing community of Q&As!";
+    let privacyPolicy = "";
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
@@ -93,6 +94,13 @@ class SessionForm extends React.Component {
               <h4 className="error-text" key={idx}>{el}</h4>
           ))}
         </div>
+      );
+      privacyPolicy = (
+        <p className="privacy-text">
+          By registering, you agree to the <a href="#">privacy policy</a> and
+          <br />
+          <a href="#">terms of service</a>.
+        </p>
       );
     }
 
@@ -152,8 +160,9 @@ class SessionForm extends React.Component {
                   <h4 className="error-text" key={idx}>{el}</h4>
                 ))}
               </div>
-              <button className="blue-button">{buttonText}</button>
+              <button className="session-button">{buttonText}</button>
               {guestButton}
+              {privacyPolicy}
             </form>
           </div>
         </div>
