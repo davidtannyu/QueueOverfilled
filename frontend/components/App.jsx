@@ -21,6 +21,22 @@ const App = (props) => {
       <div className="children">
         { children }
       </div>
+      <div className="footer">
+        <a href="#">about us</a>
+        <a href="#">tour</a>
+        <a href="#">help</a>
+        <a href="#">blog</a>
+        <a href="#">chat</a>
+        <a href="#">data</a>
+        <a href="#">legal</a>
+        <a href="#">privacy policy</a>
+        <a href="#">work here</a>
+        <a href="#">advertising info</a>
+        <a href="#">developers jobs directory</a>
+        <a href="#">mobile</a>
+        <a href="#"><strong>contact us</strong></a>
+        <a href="#"><strong>feedback</strong></a>
+      </div>
     </div>
   );
 };

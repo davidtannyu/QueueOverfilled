@@ -69,15 +69,27 @@ class SessionForm extends React.Component {
     ));
     let guestButton = (
       <div>
-        <button className="blue-button" onClick={this.logInAsGuest}>
+        <button className="session-button" onClick={this.logInAsGuest}>
           Login as a guest
         </button>
       </div>
     );
+    let topText = "QueueOverfilled is part of a growing community of Q&As!";
+    let privacyPolicy = "";
+    let bottomText = (
+      <div>
+        Don't have an account? <Link to="/">Sign up</Link>
+      </div>
+    );
+    let extraText = "";
+    let moreLoginText = (<Link className="more-login-text" to="/">more login options</Link>);
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
       guestButton = null;
+      topText = "Create your Queue Overfilled account today! It's free and only takes a minute.";
+      extraText = " (required, but never shown)";
+      moreLoginText = "";
       display_name_field = (
         <div className="input-field">
           <label htmlFor="display_name"><strong>Display Name</strong></label>
@@ -90,6 +102,18 @@ class SessionForm extends React.Component {
           {displayNameErrors.map((el, idx) => (
               <h4 className="error-text" key={idx}>{el}</h4>
           ))}
+        </div>
+      );
+      privacyPolicy = (
+        <p className="privacy-text">
+          By registering, you agree to the <a href="#">privacy policy</a> and
+          <br />
+          <a href="#">terms of service</a>.
+        </p>
+      );
+      bottomText = (
+        <div>
+          Already have an account? <Link to="/login">Log in</Link>
         </div>
       );
     }
@@ -111,13 +135,25 @@ class SessionForm extends React.Component {
               </Link>
             </div>
         </div>
-
         <div className="form-container">
+          <div className="form-header">
+            <h1>{topText}</h1>
+          </div>
           <div className="session-form">
+            <div className="other-auth">
+              <button className="google">
+                Google
+              </button>
+              <button className="facebook">
+                Facebook
+              </button>
+            </div>
+            <div className="or-container">
+              <span>OR</span>
+            </div>
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
-              <label htmlFor="email"><strong>Email</strong></label>
-              <br />
+              <label htmlFor="email"><strong>Email{extraText}</strong></label>
               <div className="input-field">
                 <input id="email" type="text"
                   onChange={this.handleField("email")}
@@ -127,10 +163,8 @@ class SessionForm extends React.Component {
                     <h4 className="error-text" key={idx}>{el}</h4>
                   ))}
                 {logInErrors}
-                <br />
               </div>
               <label htmlFor="password"><strong>Password</strong></label>
-              <br />
               <div className="input-field">
                 <input id="password" type="password"
                   onChange={this.handleField("password")}
@@ -139,11 +173,18 @@ class SessionForm extends React.Component {
                 {passwordErrors.map((el, idx) => (
                   <h4 className="error-text" key={idx}>{el}</h4>
                 ))}
-                <br />
               </div>
-              <button className="blue-button">{buttonText}</button>
+              {moreLoginText}
+              <button className="session-button">{buttonText}</button>
               {guestButton}
+              {privacyPolicy}
             </form>
+          </div>
+          <div className="bottom-text">
+            {bottomText}
+            <p>
+              Are you an employer? <Link to="/"> Log in on Talent </Link>
+            </p>
           </div>
         </div>
     </div>

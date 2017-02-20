@@ -1,6 +1,7 @@
 .session-div {
   text-align: center;
   padding: 20px;
+  height: 750px;
 }
 
 .session-div strong {
@@ -9,22 +10,28 @@
 
 .session-div .form-tabs {
   display: flex;
-  border-bottom: 1px solid gray;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e6e8;
   z-index: 0;
   height: 28px;
+  font-size: 14px;
 }
 
 .session-div .logIn-link{
   padding: 0px 3px 0px 0px;
+  margin-right: 3px;
 }
 
 .session-div .signUp-link{
   position: absolute;
   left: 75px;
+
 }
 
 .session-div .selected-form {
-  border: 1px solid grey;
+  padding: 5px;
+  border: 1px solid #e4e6e8;
   border-bottom: 1px solid white;
   border-top: 3px solid purple;
   float: left;
@@ -33,12 +40,14 @@
   height: 25px;
 }
 
+
 .session-div form {
   display: block
 }
 
 .session-div .unselected-form {
   float:left;
+  margin: 5px 5px;
   border-bottom: 0px;
   padding: 3px 3px 0px 3px;
   height: 25px;
@@ -46,29 +55,62 @@
 
 .session-div .form-tabs .unselected-form:hover {
   background-color: #e4e6e8;
+  padding-bottom: 5px;
   opacity: .7;
 }
 
 .session-div .form-container {
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   margin: 20px;
 }
+
+.session-div .form-header {
+  margin: 10px;
+  font-size: 20px;
+  font-family: Arial;
+}
+
 .session-div .session-form {
-  padding: 100px;
-  border: 1px solid gray;
+  margin: 10px;
+  padding: 50px;
+  border: 1px solid #e4e6e8;
+}
+
+.session-div .session-form form {
+  display: flex;
+  flex-direction: column;
+  text-align:left;
+}
+
+.session-div .session-form label {
+  font-size: 80%;
+  font-family: Arial;
+}
+
+.session-div .session-form strong {
+  padding-left: 5px;
 }
 
 .session-div .session-form input {
+  padding: 8px;
+  width: 250px;
   margin: 5px;
+}
+
+.session-div .session-form button {
+  align-items: flex-end;
 }
 
 .session-div .error-text {
   position: absolute;
-  left: 150px;
-  bottom: -15px;
+  left: 300px;
+  padding: 8px;
+  bottom: -18px;
   color: white;
   width: 200px;
   display: inline-block;
@@ -77,4 +119,104 @@
 
 .session-div .input-field {
   position: relative;
+}
+
+.session-div .other-auth {
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #6a737c;
+}
+
+.session-div .other-auth > button  {
+  display: inline;
+  color: white;
+  border: 0;
+  margin: 2px;
+  padding: 8px 20px;
+  font-family: Arial;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+.session-div .google {
+  background: #e0492f;
+}
+
+.session-div .facebook {
+  background: #395697;
+}
+
+.session-div .or-container {
+  color: #6a737c;
+}
+
+.session-div .or-container > span {
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  padding: 5px;
+  bottom: 10px;
+}
+
+.session-div .privacy-text {
+  font-size: 12px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.session-div .privacy-text > a {
+  color: #07C;
+}
+
+.session-div .privacy-text > a:hover {
+  color: #1da9da;
+}
+
+.session-div .session-button {
+  background: #07C;
+  color: white;
+  font-size: 80%;
+  width: 120px;
+  border: 0;
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-left: 55%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.session-div .bottom-text {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #e4e6e8;
+}
+
+.session-div .bottom-text div {
+  margin-bottom: 10px;
+}
+
+.session-div .bottom-text a {
+  color: #07C;
+}
+
+.session-div .bottom-text a:hover {
+  color: #1da9da;
+}
+
+.session-div .more-login-text {
+  position: relative;
+  top: 50px;
+  font-size: 15px;
+}
+
+.session-div .more-login-text {
+  color: #07C;
+}
+
+.session-div .more-login-text:hover {
+  color: #1da9da;
 }
