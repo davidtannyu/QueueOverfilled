@@ -47,3 +47,16 @@
   padding-top: 20px;
   margin-bottom: 20px;
 }
+
+.answer-form .error-text {
+  position: absolute;
+  left: 700px;
+  padding: 8px;
+  bottom: -18px;
+  color: white;
+  width: 200px;
+  display: inline-block;
+  background-color: #C04848;
+  font-family: Arial;
+  font-size: 14px;
+}
