@@ -16,6 +16,7 @@ json.answers do
           json.author do
             json.partial! "api/users/user", user: author
           end
+          break
         end
       end
     end
