@@ -173,3 +173,21 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.session-div .bottom-text {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.session-div .bottom-text div {
+  margin-bottom: 10px;
+}
+
+.session-div .bottom-text a {
+  color: #07C;
+}
+
+.session-div .bottom-text a:hover {
+  color: #1da9da;
+}
