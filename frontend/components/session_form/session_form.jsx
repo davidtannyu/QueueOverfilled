@@ -74,10 +74,12 @@ class SessionForm extends React.Component {
         </button>
       </div>
     );
+    let topText = "QueueOverfilled is part of a growing community of Q&As!";
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
       guestButton = null;
+      topText = "Create your Queue Overfilled account today! It's free and only takes a minute.";
       display_name_field = (
         <div className="input-field">
           <label htmlFor="display_name"><strong>Display Name</strong></label>
@@ -111,9 +113,19 @@ class SessionForm extends React.Component {
               </Link>
             </div>
         </div>
-
         <div className="form-container">
+          <div className="form-header">
+            <h1>{topText}</h1>
+          </div>
           <div className="session-form">
+            <div className="other-auth">
+              <button className="google">
+                Google
+              </button>
+              <button className="facebook">
+                Facebook
+              </button>
+            </div>
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
               <label htmlFor="email"><strong>Email</strong></label>

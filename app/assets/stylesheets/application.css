@@ -66,6 +66,16 @@
   box-shadow: none;
 }
 
+button:focus,
+button:active,
+button.active,
+button:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 div.children {
   padding-top: 80px;
 }
