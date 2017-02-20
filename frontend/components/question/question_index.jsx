@@ -12,11 +12,14 @@ export default class QuestionIndex extends Component {
     let questions = Object.values(this.props.questions);
     return (
       <div className="main-bar">
-        <Link to="/questions/ask">
-          <p className="blue-button">
-            Ask Question
-          </p>
+        <div className="header">
+          <p className="text">Top Questions</p>
+          <Link to="/questions/ask">
+            <p className="blue-button">
+              Ask Question
+            </p>
         </Link>
+      </div>
         <ul className="question-index-list">
           { questions.map (question => (
             <QuestionIndexItem key={question.id} question={question} />

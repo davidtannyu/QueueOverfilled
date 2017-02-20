@@ -49,3 +49,16 @@
   padding: 10px;
   height: 700px;
 }
+
+.main-bar .header {
+  display: flex;
+  justify-content: space-around;
+
+  border-bottom: 1px solid #e4e6e8;
+}
+
+.main-bar .header .text {
+  margin-right: 70%;
+  font-family: Arial;
+  font-size: 18px;
+}
