@@ -48,11 +48,14 @@
   margin-bottom: 20px;
 }
 
+.text-editor {
+  position: relative
+}
+
 .answer-form .error-text {
   position: absolute;
-  left: 700px;
   padding: 8px;
-  bottom: -18px;
+  margin-left: 5px;
   color: white;
   width: 200px;
   display: inline-block;

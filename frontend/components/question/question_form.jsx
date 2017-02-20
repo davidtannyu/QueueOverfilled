@@ -38,7 +38,7 @@ export default class QuestionForm extends Component {
   render() {
     const { errors, formType } = this.props;
     let buttonText =
-    (formType === "new") ? "Ask Question" : "Edit Question";
+    (formType === "new") ? "Post Your Question" : "Edit Question";
     let titleErrors = errors.filter( (error) => {
       return error.split(" ")[0] === "Title";
     });

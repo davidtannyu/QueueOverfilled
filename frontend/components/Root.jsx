@@ -7,7 +7,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import QuestionIndexContainer from './question/question_index_container';
 import QuestionFormContainer from './question/question_form_container';
 import QuestionContainer from './question/question_container';
-import { resetDefault } from '../actions/loading';
+import { resetErrors } from '../actions/error_actions';
 
 const Root = (props) => {
   const {store} = props;
@@ -16,14 +16,18 @@ const Root = (props) => {
     if (store.getState().currentUser) {
       replace("/");
     }
-    store.dispatch(resetDefault());
+    store.dispatch(resetErrors());
   }
 
   function ensureLoggedIn(nextState, replace) {
     if (!store.getState().currentUser) {
       replace("/logIn");
     }
-    store.dispatch(resetDefault());
+    store.dispatch(resetErrors());
+  }
+
+  function clearErrors() {
+    store.dispatch(resetErrors());
   }
 
   return (
@@ -44,7 +48,8 @@ const Root = (props) => {
             component={QuestionFormContainer}
             onEnter={ensureLoggedIn} />
           <Route path="/questions/:id"
-            component={QuestionContainer} />
+            component={QuestionContainer}
+            onEnter={clearErrors}/>
           <Route path="/questions/:id/edit"
             formType="edit"
             component={QuestionFormContainer}

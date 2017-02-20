@@ -2,7 +2,6 @@ import {
   RECEIVE_ANSWERS,
   RECEIVE_ANSWER,
   REMOVE_ANSWER } from '../actions/answer_actions';
-import { RESET_DEFAULT } from '../actions/loading';
 
 
 export default function answersReducer (state = {}, action) {

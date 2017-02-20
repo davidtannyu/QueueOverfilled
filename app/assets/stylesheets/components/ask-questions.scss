@@ -12,8 +12,9 @@ div.question-form div.input-field {
 }
 
 div.question-form input.title {
-  width: 92%;
-  padding-left: 3px;
+  width: 88%;
+  padding: 8px 10px;
+  border: 1px solid #c8ccd0;
 }
 
 div.question-form .text-editor {
@@ -28,8 +29,10 @@ div.question-form .input-field {
 div.question-form .error-text {
   position: absolute;
   color: white;
-  bottom: -20px;
+  bottom: -18px;
   width: 200px;
   display: inline-block;
-  background-color: red;
+  background-color: #C04848;
+  font-family: Arial;
+  margin-left: 10px;
 }
