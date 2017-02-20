@@ -106,7 +106,7 @@
   align-items: flex-end;
 }
 
-.session-div .error-text {
+.session-div h4.error-text {
   position: absolute;
   left: 300px;
   padding: 8px;
@@ -114,7 +114,9 @@
   color: white;
   width: 200px;
   display: inline-block;
-  background-color: red;
+  background-color: #C04848;
+  font-family: Arial;
+  font-size: 14px;
 }
 
 .session-div .input-field {
