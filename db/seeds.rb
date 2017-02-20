@@ -69,6 +69,22 @@ signUpQuestion = Question.create({
   author_id: guest.id
 })
 
+Question.create({
+  title: "On the deliciousness of bacon",
+  body: "Woof! {Translation: Why is bacon so delicious? I RUV IT SO MUCH. I WANT
+  MORE AND MORE. But my owner doesn't allow me to eat much. Why does it have to
+  be this way? The deliciousness overwhelms me even in my doggy naps}",
+  author_id: dog.id
+  })
+
+Question.create({
+  title: "Jenerating Infinity Energy",
+  body: "Ureka! I have done it! I have found a way to create infinity energy!
+  What we need to do is produce energy drinks! And with these energy drinks,
+  we power up the generators. Aren't I the greatest jenius?",
+  author_id: smartie.id
+  })
+
 
 Answer.destroy_all
 
@@ -249,7 +265,7 @@ Answer.create ({
     SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM
     SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM
     SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM
-    
+
     ",
     author_id: spammer.id,
     question_id: signUpQuestion.id
