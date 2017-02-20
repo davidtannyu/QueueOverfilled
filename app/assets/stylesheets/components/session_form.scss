@@ -15,7 +15,7 @@
   border-bottom: 1px solid #e4e6e8;
   z-index: 0;
   height: 28px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .session-div .logIn-link{
@@ -26,6 +26,7 @@
 .session-div .signUp-link{
   position: absolute;
   left: 75px;
+
 }
 
 .session-div .selected-form {
@@ -38,6 +39,7 @@
   left: 75px;
   height: 25px;
 }
+
 
 .session-div form {
   display: block
@@ -202,5 +204,19 @@
 }
 
 .session-div .bottom-text a:hover {
+  color: #1da9da;
+}
+
+.session-div .more-login-text {
+  position: relative;
+  top: 50px;
+  font-size: 15px;
+}
+
+.session-div .more-login-text {
+  color: #07C;
+}
+
+.session-div .more-login-text:hover {
   color: #1da9da;
 }

@@ -82,11 +82,14 @@ class SessionForm extends React.Component {
       </div>
     );
     let extraText = "";
+    let moreLoginText = (<Link className="more-login-text" to="/">more login options</Link>);
     if (formType === "signUp") {
       buttonText = "Sign Up";
       logInErrors = null;
       guestButton = null;
       topText = "Create your Queue Overfilled account today! It's free and only takes a minute.";
+      extraText = " (required, but never shown)";
+      moreLoginText = "";
       display_name_field = (
         <div className="input-field">
           <label htmlFor="display_name"><strong>Display Name</strong></label>
@@ -113,7 +116,6 @@ class SessionForm extends React.Component {
           Already have an account? <Link to="/login">Log in</Link>
         </div>
       );
-      extraText = " (required, but never shown)";
     }
 
 
@@ -172,6 +174,7 @@ class SessionForm extends React.Component {
                   <h4 className="error-text" key={idx}>{el}</h4>
                 ))}
               </div>
+              {moreLoginText}
               <button className="session-button">{buttonText}</button>
               {guestButton}
               {privacyPolicy}
