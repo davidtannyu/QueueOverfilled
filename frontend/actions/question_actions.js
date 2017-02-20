@@ -1,6 +1,7 @@
 import * as QuestionApiUtil from '../util/question_api_util';
 import { receiveErrors } from './error_actions';
 import { receiveAnswers } from './answer_actions';
+import { loading } from './loading';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
@@ -27,6 +28,7 @@ export const receiveQuestion = (question) => {
 };
 
 export const fetchQuestion = (id) => dispatch => {
+  dispatch(loading());
   return QuestionApiUtil.fetchQuestion(id)
   .then(obj => {
     dispatch( receiveQuestion(obj.question));
@@ -40,12 +42,14 @@ export const fetchQuestion = (id) => dispatch => {
 };
 
 export const createQuestion = (question) => dispatch => {
+  dispatch(loading());
   return QuestionApiUtil.createQuestion(question)
   .then(obj => dispatch( receiveQuestion(obj.question)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
 
 export const updateQuestion = (question) => dispatch => {
+  dispatch(loading());
   return QuestionApiUtil.updateQuestion(question)
   .then(obj => dispatch( receiveQuestion(obj.question)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
@@ -59,6 +63,7 @@ export const removeQuestion = (questionId) => {
 };
 
 export const deleteQuestion = (id) => dispatch => {
+  dispatch(loading());
   return QuestionApiUtil.deleteQuestion(id)
   .then( () => dispatch( removeQuestion(id)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
