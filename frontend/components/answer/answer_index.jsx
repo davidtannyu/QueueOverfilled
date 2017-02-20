@@ -31,7 +31,7 @@ const AnswerIndexItem = (props) => {
   if (currentUser && currentUser.id === answer.author.id) {
     deleteButton = (
       <div>
-        <button className="blue-button" onClick={deleteAnswer}>
+        <button className="text-button" onClick={deleteAnswer}>
           {"delete"}
         </button>
       </div>
