@@ -82,7 +82,7 @@ button:focus:active {
 
 div.children {
   padding-top: 80px;
-  height: 1080px;
+  min-height: 1000px;
 }
 
 .footer {
@@ -91,6 +91,7 @@ div.children {
   color: white;
   background-color: black;
   position: relative;
+  padding-top: 20px;
   right: 0;
   bottom: 0;
   left: 0;
