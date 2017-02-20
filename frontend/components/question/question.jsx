@@ -48,12 +48,19 @@ export default class Question extends Component {
         </div>
       );
     }
-    if (question && currentUser) {
-      answerForm = (
-        <div>
-          <AnswerFormContainer formType="new" questionId={question.id} />
-        </div>
-      );
+    let answerCount = null;
+    if (question) {
+      answerCount = (
+      <p className="answer-count">
+        {question.answers_count} Answers
+      </p>);
+      if (currentUser) {
+        answerForm = (
+          <div>
+            <AnswerFormContainer formType="new" questionId={question.id} />
+          </div>
+        );
+      }
     }
     return (
       <div className="question-show">
@@ -69,6 +76,7 @@ export default class Question extends Component {
           {editButton}
           {deleteButton}
         </div>
+        {answerCount}
         <AnswerIndexContainer />
         {answerForm}
       </div>
