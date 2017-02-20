@@ -126,6 +126,9 @@ class SessionForm extends React.Component {
                 Facebook
               </button>
             </div>
+            <div className="or-container">
+              <span>OR</span>
+            </div>
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
               <label htmlFor="email"><strong>Email</strong></label>

@@ -106,12 +106,17 @@
   position: relative;
 }
 
+.session-div .other-auth {
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #6a737c;
+}
 
 .session-div .other-auth > button  {
   display: inline;
   color: white;
   border: 0;
-  margin: 8px;
+  margin: 2px;
   padding: 8px 20px;
   font-family: Arial;
   line-height: 36px;
@@ -126,4 +131,17 @@
 
 .session-div .facebook {
   background: #395697;
+}
+
+.session-div .or-container {
+  color: #6a737c;
+}
+
+.session-div .or-container > span {
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  padding: 5px;
+  bottom: 10px;
 }
