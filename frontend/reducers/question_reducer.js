@@ -15,8 +15,6 @@ export default function questionsReducer (state = {}, action) {
       let newState = Object.assign({}, state);
       delete newState[action.questionId];
       return newState;
-    case RESET_DEFAULT:
-      return {};
     default:
       return state;
   }

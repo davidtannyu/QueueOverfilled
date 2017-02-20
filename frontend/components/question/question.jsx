@@ -35,14 +35,14 @@ export default class Question extends Component {
     if (currentUser && author && currentUser.id === author.id) {
       deleteButton = (
         <div>
-          <button className="blue-button" onClick={this.deleteQuestion}>
+          <button className="text-button" onClick={this.deleteQuestion}>
             {"delete"}
           </button>
         </div>
       );
       editButton = (
         <div>
-          <button className="blue-button" onClick={this.editForm}>
+          <button className="text-button" onClick={this.editForm}>
             edit
           </button>
         </div>

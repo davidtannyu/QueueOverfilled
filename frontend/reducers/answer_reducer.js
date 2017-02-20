@@ -16,8 +16,6 @@ export default function answersReducer (state = {}, action) {
       let newState = Object.assign({}, state);
       delete newState[action.answerId];
       return newState;
-    case RESET_DEFAULT:
-      return {};
     default:
       return state;
   }
