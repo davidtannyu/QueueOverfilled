@@ -9,7 +9,7 @@ const QuestionIndexItem = (props) => {
     lastUpdate = (
       <div className="last-update">
         asked &nbsp;
-        { (new Date() - new Date(question.created_at * 1000))/ (1000 * 60) }
+        { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60))}
          &nbsp;minutes ago by {question.author.display_name}
       </div>
     );
@@ -18,7 +18,7 @@ const QuestionIndexItem = (props) => {
       <div className="last-update">
         <p>
           answered &nbsp;
-          { (new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60)}
+          { Math.floor((new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60))}
            &nbsp; minutes ago by {question.last_answer.display_name}
         </p>
       </div>
