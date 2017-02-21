@@ -8,6 +8,7 @@ export default class TextEditor extends Component {
     this.state = { preview: "", body: "" };
     this.handleField = this.handleField.bind(this);
     this.addStrongText = this.addStrongText.bind(this);
+    this.addItalicText = this.addItalicText.bind(this);
   }
 
   handleField(e) {
@@ -26,8 +27,15 @@ export default class TextEditor extends Component {
     if (!window.getSelection.toString()) {
       value = this.state.body.replace(window.getSelection.to_s,"<b>$1</b>");
     } else {
-      value = `${this.state.body}**strong**`;
+      value = `${this.state.body} **strong**`;
     }
+    e.target = { value };
+    this.handleField(e);
+  }
+
+  addItalicText(e) {
+    e.preventDefault();
+    let value = `${this.state.body} *italic*`;
     e.target = { value };
     this.handleField(e);
   }
@@ -39,7 +47,7 @@ export default class TextEditor extends Component {
       <div className="text-editor">
         <div className="button-row">
           <p onClick={this.addStrongText} value="**strong**">B</p>
-          <p onClick={console.log}>I</p>
+          <p onClick={this.addItalicText}>I</p>
         </div>
         <textarea className="text-editor"
           onChange={this.handleField}
