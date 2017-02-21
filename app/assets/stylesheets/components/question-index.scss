@@ -31,36 +31,32 @@
 
 .question-index-item .summary {
   padding-left: 10px;
-  width: 50%;
+  width: 100%;
 }
 
 .question-index-item .last-update {
-  margin-left: 50%;
+  margin-right: 0%;
 }
 
 .main-bar > a {
   margin: 5px;
-  display: flex;
-  justify-content: flex-end;
   margin-right: 30%;
 }
 
 .main-bar {
   padding: 10px;
   height: 700px;
+  width: 90%;
 }
 
-.main-bar .header {
+.content {
   display: flex;
-  justify-content: space-around;
-
-  border-bottom: 1px solid #e4e6e8;
 }
 
-.main-bar .header .text {
-  margin-right: 70%;
+.main-bar .header-text {
   font-family: Arial;
   font-size: 18px;
+  padding-left: 40px;
 }
 
 .question-index-list .last-update a.last-update-link {
