@@ -26,11 +26,7 @@ class AnswerIndexItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answer_body: (
-        <div className="answer-body">
-          {this.props.answer.body}
-        </div>
-      )
+      editing: false
     };
     this.deleteAnswer = this.deleteAnswer.bind(this);
     this.editAnswer = this.editAnswer.bind(this);
@@ -45,11 +41,7 @@ class AnswerIndexItem extends Component {
     if (this.props.answer !== newProps.answer) {
       this.props.answer.body = newProps.answer.body;
       this.setState ({
-        answer_body: (
-          <div className="answer-body">
-            {this.props.answer.body}
-          </div>
-        )
+        editing: false
       });
     }
   }
@@ -57,11 +49,7 @@ class AnswerIndexItem extends Component {
   editAnswer(e) {
     e.preventDefault();
     this.setState ({
-      answer_body: (
-      <div className="answer-body">
-        <AnswerFormContainer formType="edit" answerId={this.props.answer.id}/>
-      </div>
-      )
+      editing: true
     });
   }
 
@@ -69,6 +57,7 @@ class AnswerIndexItem extends Component {
     let { answer, currentUser } = this.props;
     let deleteButton = null;
     let editButton = null;
+    let answer_body = null;
     if (currentUser && currentUser.id === answer.author.id) {
       deleteButton = (
         <div>
@@ -85,10 +74,23 @@ class AnswerIndexItem extends Component {
         </div>
       );
     }
+    if (this.state.editing) {
+      answer_body = (
+        <div className="answer-body">
+          <AnswerFormContainer formType="edit" answerId={answer.id}/>
+        </div>
+      );
+    } else {
+      answer_body = (
+        <div className="answer-body">
+          {answer.body}
+        </div>
+      );
+    }
     return (
       <li >
         <div className="answer-index-item">
-          {this.state.answer_body}
+          {answer_body}
           <div className="answer-author">
             <Link to={`/users/${answer.author.id}`}>
               {answer.author.display_name}

@@ -42,11 +42,18 @@ export default class AnswerForm extends Component {
     let bodyErrors = errors.filter( (error) => {
       return error.split(" ")[0] === "Body";
     });
-    let helpText = null;
+    let helpText = "";
+    let privacyText = "";
     if (formType === "new") {
       helpText = (
         <p>
           Can you help? Queue Overfilled depends on everyone sharing their knowledge. If you're able to answer this question, please do!
+        </p>
+      );
+      privacyText = (
+        <p className="privacy-text">
+          By posting your answer, you agree to the
+          <a href=""> privacy policy</a> and <a href="">terms of service</a>.
         </p>
       );
     }
@@ -65,10 +72,7 @@ export default class AnswerForm extends Component {
             ))}
           </div>
           <button className="blue-button">{buttonText}</button>
-          <p className="privacy-text">
-            By posting your answer, you agree to the
-            <a href=""> privacy policy</a> and <a href="">terms of service</a>.
-          </p>
+          {privacyText}
         </form>
       </div>
     );
