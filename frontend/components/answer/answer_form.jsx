@@ -26,6 +26,9 @@ export default class AnswerForm extends Component {
     promise.then( (action) => {
       this.setState({body: ""});
       this.props.clearErrors();
+      if (this.props.formType === "new") {
+        this.props.incrementAnswerCount(question_id);
+      }
     });
   }
 

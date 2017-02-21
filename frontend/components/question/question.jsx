@@ -7,12 +7,17 @@ import AnswerFormContainer from '../answer/answer_form_container';
 export default class Question extends Component {
   constructor(props) {
     super(props);
+    this.state = { answers_count: this.props.answers_count };
     this.deleteQuestion = this.deleteQuestion.bind(this);
     this.editForm = this.editForm.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.params.id);
+    this.props.fetchQuestion(this.props.params.id)
+    .then( (question) => {
+      const {answers_count} = question;
+      this.setState({answers_count});
+    });
   }
 
   deleteQuestion(e) {
@@ -25,6 +30,16 @@ export default class Question extends Component {
     e.preventDefault();
     const questionId = this.props.question.id;
     hashHistory.push(`/questions/${questionId}/edit`);
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { question } = this.props;
+    if (question) {
+      const updatedAnswersCount = newProps.answers_count;
+      if (question.answers_count === updatedAnswersCount) {
+        this.setState({answers_count: updatedAnswersCount});
+      }
+    }
   }
 
   render() {
@@ -52,7 +67,7 @@ export default class Question extends Component {
     if (question) {
       answerCount = (
       <p className="answer-count">
-        {question.answers_count} Answers
+        {this.state.answers_count} Answers
       </p>);
       if (currentUser) {
         answerForm = (
