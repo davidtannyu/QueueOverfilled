@@ -8,19 +8,27 @@ const QuestionIndexItem = (props) => {
   if (!question.last_answer) {
     lastUpdate = (
       <div className="last-update">
-        asked &nbsp;
-        { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60))}
-         &nbsp;minutes ago by {question.author.display_name}
+        <Link to={`/questions/${question.id}`} className="last-update-link">
+          asked &nbsp;
+          { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60))}
+          &nbsp;min ago &nbsp;
+        </Link>
+         <Link to={`/users/${question.author.id}`}>
+           {question.author.display_name}
+         </Link>
       </div>
     );
   } else {
     lastUpdate = (
       <div className="last-update">
-        <p>
+        <Link to={`/questions/${question.id}`} className="last-update-link">
           answered &nbsp;
           { Math.floor((new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60))}
-           &nbsp; minutes ago by {question.last_answer.display_name}
-        </p>
+          &nbsp; min ago &nbsp;
+        </Link>
+         <Link to={`/users/${question.last_answer.id}`}>
+           {question.last_answer.display_name}
+         </Link>
       </div>
     );
   }

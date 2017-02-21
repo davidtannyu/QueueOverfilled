@@ -62,3 +62,15 @@
   font-family: Arial;
   font-size: 18px;
 }
+
+.question-index-list .last-update a.last-update-link {
+  color: #9199a1;
+}
+
+.question-index-list .last-update a.last-update-link:hover {
+  color: #07C;
+}
+
+div.last-update {
+  text-align: right;
+}
