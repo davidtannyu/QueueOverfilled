@@ -4,6 +4,9 @@ div.text-editor {
 }
 
 div.text-editor .button-row {
+  border: 1px solid #c8ccd0;
+  border-bottom: 0px;
+  width: 704px;
   display: flex;
 }
 
@@ -11,4 +14,28 @@ div.text-editor textarea {
   resize: none;
   width: 700px;
   height: 200px;
+  font-size: 14px;
+  font-family: Consolas,Menlo,Monaco,Lucida Console,
+  Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans
+  Mono,Courier New,monospace,sans-serif;
+}
+
+div.text-editor textarea:focus {
+  outline: 0;
+  border: 1px solid #07C;
+}
+
+div.text-editor .preview {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px dotted #c8ccd0;
+  border-bottom: 1px dotted #c8ccd0;
+}
+
+div.text-editor .preview .text {
+  width: 100%;
+}
+
+div.text-editor .preview .text strong {
+  font-weight: bold;
 }
