@@ -12,6 +12,7 @@ export default class AnswerIndex extends Component {
           { answers.map (answer => (
             <AnswerIndexItem key={answer.id} answer={answer}
               deleteAnswer={this.props.deleteAnswer}
+              decrementAnswerCount={this.props.decrementAnswerCount}
               currentUser={this.props.currentUser} />
           ))}
         </ul>
@@ -35,6 +36,7 @@ class AnswerIndexItem extends Component {
   deleteAnswer(e) {
     e.preventDefault();
     this.props.deleteAnswer(this.props.answer.id);
+    this.props.decrementAnswerCount(this.props.answer.question_id);
   }
 
   componentWillReceiveProps(newProps) {

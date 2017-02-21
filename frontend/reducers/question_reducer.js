@@ -2,7 +2,8 @@ import {
   RECEIVE_QUESTIONS,
   RECEIVE_QUESTION,
   REMOVE_QUESTION,
-  INCREMENT_ANSWER_COUNT } from '../actions/question_actions';
+  INCREMENT_ANSWER_COUNT,
+  DECREMENT_ANSWER_COUNT } from '../actions/question_actions';
 
 export default function questionsReducer (state = {}, action) {
   let newState = Object.assign({}, state);
@@ -17,6 +18,9 @@ export default function questionsReducer (state = {}, action) {
       return newState;
     case INCREMENT_ANSWER_COUNT:
       newState[action.questionId].answers_count += 1;
+      return newState;
+    case DECREMENT_ANSWER_COUNT:
+      newState[action.questionId].answers_count -= 1;
       return newState;
     default:
       return state;
