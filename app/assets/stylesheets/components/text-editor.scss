@@ -30,6 +30,7 @@ div.text-editor .preview {
   padding: 10px 0;
   border-top: 1px dotted #c8ccd0;
   border-bottom: 1px dotted #c8ccd0;
+  overflow-wrap: break-word;
 }
 
 div.text-editor .preview .text {
