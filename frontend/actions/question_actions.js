@@ -6,6 +6,8 @@ import { loading } from './loading';
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
+export const INCREMENT_ANSWER_COUNT = "INCREMENT_ANSWER_COUNT";
+export const DECREMENT_ANSWER_COUNT = "DECREMENT_ANSWER_COUNT";
 
 export const receiveQuestions = (questions) => {
   return {
@@ -37,6 +39,7 @@ export const fetchQuestion = (id) => dispatch => {
       answers = {};
     }
     dispatch( receiveAnswers(answers));
+    return obj.question[id];
   },
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };
@@ -67,4 +70,18 @@ export const deleteQuestion = (id) => dispatch => {
   return QuestionApiUtil.deleteQuestion(id)
   .then( () => dispatch( removeQuestion(id)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
+};
+
+export const incrementAnswerCount = (questionId) => {
+  return {
+    type: INCREMENT_ANSWER_COUNT,
+    questionId
+  };
+};
+
+export const decrementAnswerCount = (questionId) => {
+  return {
+    type: DECREMENT_ANSWER_COUNT,
+    questionId
+  };
 };

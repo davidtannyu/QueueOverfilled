@@ -7,10 +7,14 @@ export default class Greeting extends Component {
     let component;
     if ( currentUser ) {
       component = [
-          <li key="greeting-user"> Hi { currentUser.display_name }</li>,
+          <li key="greeting-user">
+            <a>
+            Hi { currentUser.display_name }
+            </a>
+          </li>,
           <li key="logout-button">
-            <button className="logout-button blue-button" onClick={logout}>
-              Logout
+            <button className="blue-button" onClick={logout}>
+              Log out
             </button>
           </li>
         ];

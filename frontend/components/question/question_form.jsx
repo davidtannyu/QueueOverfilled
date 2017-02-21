@@ -46,26 +46,54 @@ export default class QuestionForm extends Component {
       return error.split(" ")[0] === "Body";
     });
     return (
-      <div className="question-form">
-        <form onSubmit={this.handleSubmit} className="ask-question-form">
-          <div className="input-field">
-            <label htmlFor="title"><strong>Title</strong></label>
-            <input id="title" type="text" className="title"
-              onChange={this.handleField("title")}
-              value={this.state.title} />
-            {titleErrors.map((el, idx) => (
-                <h4 className="error-text" key={idx}>{el}</h4>
-            ))}
-          </div>
-          <div className="input-field">
-            <TextEditor handleField={this.handleField}
-              value={this.state.body} />
-            {bodyErrors.map((el, idx) => (
-                <h4 className="error-text" key={idx}>{el}</h4>
-            ))}
-          </div>
-          <button className="blue-button">{buttonText}</button>
-        </form>
+      <div className="question-form-page">
+        <div className="question-form main-bar">
+          <form onSubmit={this.handleSubmit} className="ask-question-form">
+            <div className="input-field">
+              <label className="title-label"
+                htmlFor="title"><strong>Title</strong></label>
+              <input id="title" type="text" className="title"
+                onChange={this.handleField("title")}
+                placeholder="What's your question? Go into detail."
+                value={this.state.title} />
+              {titleErrors.map((el, idx) => (
+                  <h4 className="error-text" key={idx}>{el}</h4>
+              ))}
+            </div>
+            <div className="input-field">
+              <TextEditor handleField={this.handleField}
+                value={this.state.body} />
+              {bodyErrors.map((el, idx) => (
+                  <h4 className="error-text" key={idx}>{el}</h4>
+              ))}
+            </div>
+            <div className="input-field">
+              <input
+                type="checkbox" />
+              <span className="checkbox"><strong>
+                Send me new responses to my posts via email
+              </strong>
+              </span>
+            </div>
+            <button className="blue-button">{buttonText}</button>
+          </form>
+        </div>
+        <div className="side-bar">
+           <div className="how-to-ask">
+             <h4>How to Ask</h4>
+             <p><strong>Is your question about anything?</strong></p>
+             <p>
+               We prefer questions that can be talked about in a large group of
+               people.
+             </p>
+             <p>Feel free to ask any question, even impossible ones.</p>
+             <p>Provide details. Share your philosophy.</p>
+             <p>
+               Take a look at other&nbsp;
+               <Link to="/">questions that have been asked</Link>
+             </p>
+           </div>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import AnswerIndex from './answer_index';
 import { deleteAnswer } from '../../actions/answer_actions';
+import { decrementAnswerCount } from '../../actions/question_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  deleteAnswer: (id) => dispatch(deleteAnswer(id))
+  deleteAnswer: (id) => dispatch(deleteAnswer(id)),
+  decrementAnswerCount: (questionId) => dispatch(decrementAnswerCount(questionId))
 });
 
 export default connect(

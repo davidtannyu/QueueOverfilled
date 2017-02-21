@@ -31,7 +31,7 @@
 }
 
 .question-show {
-  margin: 5%;
+  margin: 10px;
 }
 
 .text-buttons {
@@ -62,4 +62,8 @@
 
 .question.author-info a:hover {
   color: #3af;
+}
+
+.question-show {
+  display: flex;
 }

@@ -10,7 +10,7 @@ const App = (props) => {
     loadingIcon = (<div className="loader"></div>);
   }
   return (
-    <div >
+    <div className="page">
       <div className="navbar">
         <div className="navbar-left">
           <h1 className="logo">

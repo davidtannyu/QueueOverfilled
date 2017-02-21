@@ -31,34 +31,45 @@
 
 .question-index-item .summary {
   padding-left: 10px;
-  width: 50%;
+  width: 100%;
 }
 
 .question-index-item .last-update {
-  margin-left: 50%;
+  margin-right: 0%;
 }
 
 .main-bar > a {
   margin: 5px;
-  display: flex;
-  justify-content: flex-end;
   margin-right: 30%;
 }
 
 .main-bar {
-  padding: 10px;
-  height: 700px;
+  padding-top: 10px;
+  height: 700px auto;
+  width: 88%;
+  margin-left: 3%;
 }
 
-.main-bar .header {
-  display: flex;
-  justify-content: space-around;
 
+.content {
+  display: flex;
+}
+
+.main-bar .header-text {
+  font-family: Arial;
+  font-size: 18px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #e4e6e8;
 }
 
-.main-bar .header .text {
-  margin-right: 70%;
-  font-family: Arial;
-  font-size: 18px;
+.question-index-list .last-update a.last-update-link {
+  color: #9199a1;
+}
+
+.question-index-list .last-update a.last-update-link:hover {
+  color: #07C;
+}
+
+div.last-update {
+  text-align: right;
 }

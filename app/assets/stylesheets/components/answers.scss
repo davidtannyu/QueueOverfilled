@@ -1,5 +1,7 @@
 .answer-index-list {
   padding-top: 10px;
+  list-style: none;
+  margin-bottom: 10px;
 }
 
 .answer-index-item {
@@ -23,14 +25,6 @@
   font-family: Arial;
 }
 
-.text-editor {
-  resize: none;
-  height: 200px;
-  width: 600px;
-  padding: 10px;
-  font-size: 14px;
-}
-
 .answer-form .privacy-text {
   margin-top: 15px;
 }
@@ -48,9 +42,6 @@
   margin-bottom: 20px;
 }
 
-.text-editor {
-  position: relative
-}
 
 .answer-form .error-text {
   position: absolute;
