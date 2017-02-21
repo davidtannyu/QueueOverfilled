@@ -10,7 +10,7 @@ export default class TextEditor extends Component {
     const { handleField, value } = this.props;
 
     return (
-      <textarea className="text-editor" 
+      <textarea className="text-editor"
         onChange={handleField("body")}
         value={value}>
       </textarea>
