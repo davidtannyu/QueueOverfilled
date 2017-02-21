@@ -44,10 +44,12 @@
 }
 
 .main-bar {
-  padding: 10px;
+  padding-top: 10px;
   height: 700px;
-  width: 90%;
+  width: 88%;
+  margin-left: 3%;
 }
+
 
 .content {
   display: flex;
@@ -56,7 +58,8 @@
 .main-bar .header-text {
   font-family: Arial;
   font-size: 18px;
-  padding-left: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e6e8;
 }
 
 .question-index-list .last-update a.last-update-link {

@@ -15,7 +15,7 @@
  */
 
  html, body, section, article,
- h1, h2, p, strong, em, a {
+ h1, h2, p, strong, em, a, ul {
    margin: 0;
    border: 0;
    padding: 0;
@@ -35,7 +35,6 @@
  .clearfix::after {
     content: " ";
     display: block;
-    height: 0;
     clear: both;
  }
 
