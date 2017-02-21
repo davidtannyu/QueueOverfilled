@@ -46,8 +46,10 @@ export default class TextEditor extends Component {
     return (
       <div className="text-editor">
         <div className="button-row">
-          <p onClick={this.addStrongText} value="**strong**">B</p>
-          <p onClick={this.addItalicText}>I</p>
+          <div className="font-format">
+            <p onClick={this.addStrongText} value="**strong**">B</p>
+            <p onClick={this.addItalicText}>I</p>
+          </div>
         </div>
         <textarea className="text-editor"
           onChange={this.handleField}

@@ -40,3 +40,16 @@ div.text-editor .preview .text {
 div.text-editor .preview .text strong {
   font-weight: bold;
 }
+
+div.text-editor .font-format {
+  display: flex;
+}
+
+div.text-editor .font-format p {
+  padding-left: 5px;
+}
+
+div.text-editor .font-format p:hover {
+  color: orange;
+  cursor: pointer;
+}
