@@ -41,6 +41,19 @@ class AnswerIndexItem extends Component {
     this.props.deleteAnswer(this.props.answer.id);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.answer !== newProps.answer) {
+      this.props.answer.body = newProps.answer.body;
+      this.setState ({
+        answer_body: (
+          <div className="answer-body">
+            {this.props.answer.body}
+          </div>
+        )
+      });
+    }
+  }
+
   editAnswer(e) {
     e.preventDefault();
     this.setState ({

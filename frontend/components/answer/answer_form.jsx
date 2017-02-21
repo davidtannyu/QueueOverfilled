@@ -42,12 +42,18 @@ export default class AnswerForm extends Component {
     let bodyErrors = errors.filter( (error) => {
       return error.split(" ")[0] === "Body";
     });
+    let helpText = null;
+    if (formType === "new") {
+      helpText = (
+        <p>
+          Can you help? Queue Overfilled depends on everyone sharing their knowledge. If you're able to answer this question, please do!
+        </p>
+      );
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="answer-form">
-          <p>
-            Can you help? Queue Overfilled depends on everyone sharing their knowledge. If you're able to answer this question, please do!
-          </p>
+          {helpText}
           <p className="space">
             Your Answer
           </p>
