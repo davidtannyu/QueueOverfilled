@@ -63,3 +63,10 @@
 .question.author-info a:hover {
   color: #3af;
 }
+
+.question-show {
+  display: flex;
+}
+.question-show .main-bar {
+  width: 88%;
+}

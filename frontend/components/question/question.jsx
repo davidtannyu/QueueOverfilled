@@ -79,21 +79,23 @@ export default class Question extends Component {
     }
     return (
       <div className="question-show">
-        <div className="header">
+        <div className="main-bar">
+          <QuestionDetail question={question} author={author}/>
+          <div className="text-buttons">
+            {editButton}
+            {deleteButton}
+          </div>
+          {answerCount}
+          <AnswerIndexContainer />
+          {answerForm}
+        </div>
+        <div className="side-bar">
           <Link to="/questions/ask">
             <p className="blue-button">
               Ask Question
             </p>
           </Link>
         </div>
-        <QuestionDetail question={question} author={author}/>
-        <div className="text-buttons">
-          {editButton}
-          {deleteButton}
-        </div>
-        {answerCount}
-        <AnswerIndexContainer />
-        {answerForm}
       </div>
     );
   }
