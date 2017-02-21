@@ -1,0 +1,14 @@
+div.text-editor {
+  position: relative;
+  width: 100%;
+}
+
+div.text-editor .button-row {
+  display: flex;
+}
+
+div.text-editor textarea {
+  resize: none;
+  width: 700px;
+  height: 200px;
+}
