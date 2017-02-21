@@ -1,29 +1,40 @@
 div.question-form {
-  display: flex;
-  padding: 50px;
+  width: 750px;
 }
 
 div.question-form strong {
   font-weight: bold;
 }
 
+.ask-question-form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
 div.question-form div.input-field {
-  margin: 20px;
+  margin: 20px 20px 20px 0;
+  width: auto;
+  display: inline;
 }
 
 div.question-form input.title {
-  width: 88%;
+  font-family: Arial;
+  font-size: 14px;
+  margin-left: 10px;
   padding: 8px 10px;
   border: 1px solid #c8ccd0;
+  width: calc(100% - 70px);
 }
 
 div.question-form .text-editor {
   height: 200px;
-  width: 500px;
+  width: 96%;
 }
 
 div.question-form .input-field {
   position: relative;
+  font-family: Arial;
 }
 
 div.question-form .error-text {
@@ -35,4 +46,49 @@ div.question-form .error-text {
   background-color: #C04848;
   font-family: Arial;
   margin-left: 10px;
+}
+
+span.checkbox {
+  font-size: 13px;
+}
+
+.question-form .blue-button {
+  width: 140px;
+}
+
+.question-form-page {
+  display: flex;
+  justify-content: center;
+}
+
+.how-to-ask {
+  background: #FFF8DC;
+  border: 1px solid #E0DCBF;
+  font-size: 14px;
+  font-family: Arial;
+  padding: 15px;
+  width: 300px;
+}
+
+.how-to-ask h4 {
+  margin-top: 0;
+  color: #242729;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.how-to-ask p {
+  margin-bottom: 10px;
+}
+
+.how-to-ask strong {
+  font-weight: bold;
+}
+
+.how-to-ask a {
+  color: #07C;
+}
+
+.how-to-ask a:hover {
+  color: #3af;
 }
