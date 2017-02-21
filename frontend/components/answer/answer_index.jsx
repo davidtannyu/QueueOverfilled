@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
-
+import AnswerFormContainer from './answer_form_container';
 
 export default class AnswerIndex extends Component {
 
@@ -21,46 +21,72 @@ export default class AnswerIndex extends Component {
 }
 
 
-const AnswerIndexItem = (props) => {
-  let { answer, currentUser } = props;
-  let deleteButton = null;
-  let editButton = null;
-  const deleteAnswer = (e) => {
+class AnswerIndexItem extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      answer_body: (
+        <div className="answer-body">
+          {this.props.answer.body}
+        </div>
+      )
+    };
+    this.deleteAnswer = this.deleteAnswer.bind(this);
+    this.editAnswer = this.editAnswer.bind(this);
+  }
+
+  deleteAnswer(e) {
     e.preventDefault();
-    props.deleteAnswer(answer.id);
-  };
-  if (currentUser && currentUser.id === answer.author.id) {
-    deleteButton = (
-      <div>
-        <button className="text-button" onClick={deleteAnswer}>
-          {"delete"}
-        </button>
+    this.props.deleteAnswer(this.props.answer.id);
+  }
+
+  editAnswer(e) {
+    e.preventDefault();
+    this.setState ({
+      answer_body: (
+      <div className="answer-body">
+        <AnswerFormContainer formType="edit" answerId={this.props.answer.id}/>
       </div>
-    );
-    editButton = (
-      <div>
-        <button className="text-button">
-          edit
-        </button>
-      </div>
+      )
+    });
+  }
+
+  render () {
+    let { answer, currentUser } = this.props;
+    let deleteButton = null;
+    let editButton = null;
+    if (currentUser && currentUser.id === answer.author.id) {
+      deleteButton = (
+        <div>
+          <button className="text-button" onClick={this.deleteAnswer}>
+            {"delete"}
+          </button>
+        </div>
+      );
+      editButton = (
+        <div>
+          <button className="text-button" onClick={this.editAnswer}>
+            edit
+          </button>
+        </div>
+      );
+    }
+    return (
+      <li >
+        <div className="answer-index-item">
+          {this.state.answer_body}
+          <div className="answer-author">
+            <Link to={`/users/${answer.author.id}`}>
+              {answer.author.display_name}
+            </Link>
+          </div>
+          <div className="inline-buttons">
+            {editButton}
+            {deleteButton}
+          </div>
+        </div>
+      </li>
     );
   }
-  return (
-    <li >
-      <div className="answer-index-item">
-        <div className="answer-body">
-          {answer.body}
-        </div>
-        <div className="answer-author">
-          <Link to={`/users/${answer.author.id}`}>
-            {answer.author.display_name}
-          </Link>
-        </div>
-        <div className="inline-buttons">
-          {editButton}
-          {deleteButton}
-        </div>
-      </div>
-    </li>
-  );
-};
+}

@@ -16,4 +16,4 @@ export const receiveErrors = (errors, formType) => ({
 export const resetErrors = () => ({
   type: RECEIVE_ERRORS,
   errors: DEFAULT_ERRORS
-})
+});

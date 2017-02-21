@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   const {formType, questionId} = ownProps;
   let answer = { body: "" };
   if (formType === "edit") {
-    answer = state.answers[ownProps.params.id];
+    answer = state.answers[ownProps.answerId];
   }
   return {
     answer,
