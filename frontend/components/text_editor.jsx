@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Link, hashHistory} from 'react-router';
+import {parseText} from '../util/text_util';
 
 export default class TextEditor extends Component {
   constructor(props) {
     super(props);
     this.state = { preview: "", body: "" };
     this.handleField = this.handleField.bind(this);
-    this.parseText = this.parseText.bind(this);
     this.addStrongText = this.addStrongText.bind(this);
   }
 
@@ -15,16 +15,9 @@ export default class TextEditor extends Component {
     this.props.handleField("body")(e);
     this.setState(
       {
-        preview: this.parseText(e.target.value),
+        preview: parseText(e.target.value),
         body: e.target.value
     });
-  }
-
-  parseText(text) {
-    let parsedText = text;
-    parsedText = parsedText.replace(/\*\*(.+)\*\*/g,"<b>$1</b>");
-    parsedText = parsedText.replace(/\*(.+)\*/g,"<i>$1</i>");
-    return parsedText;
   }
 
   addStrongText(e) {

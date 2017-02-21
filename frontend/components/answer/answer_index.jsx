@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import AnswerFormContainer from './answer_form_container';
+import {parseText} from '../../util/text_util';
 
 export default class AnswerIndex extends Component {
 
@@ -85,7 +86,8 @@ class AnswerIndexItem extends Component {
     } else {
       answer_body = (
         <div className="answer-body">
-          {answer.body}
+          <p dangerouslySetInnerHTML={{__html: parseText(answer.body)}}>
+          </p>
         </div>
       );
     }

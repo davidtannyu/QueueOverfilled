@@ -3,6 +3,7 @@ import Author from "./author";
 import { Link, hashHistory } from 'react-router';
 import AnswerIndexContainer from '../answer/answer_index_container';
 import AnswerFormContainer from '../answer/answer_form_container';
+import {parseText} from '../../util/text_util';
 
 export default class Question extends Component {
   constructor(props) {
@@ -109,7 +110,8 @@ const QuestionDetail = (props) => {
   return (
     <div className="question-detail">
       <h4 className="question-title">{question.title}</h4>
-      <p>{question.body}</p>
+        <p className="text" dangerouslySetInnerHTML={{__html: parseText(question.body)}}>
+        </p>
       <Author author={author}/>
     </div>
   );
