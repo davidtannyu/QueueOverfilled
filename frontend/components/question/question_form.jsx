@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link, hashHistory} from 'react-router';
+import TextEditor from '../text_editor';
 
 export default class QuestionForm extends Component {
   constructor(props) {

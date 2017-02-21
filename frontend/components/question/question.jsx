@@ -4,6 +4,7 @@ import { Link, hashHistory } from 'react-router';
 import AnswerIndexContainer from '../answer/answer_index_container';
 import AnswerFormContainer from '../answer/answer_form_container';
 import {parseText} from '../../util/text_util';
+import TextEditor from '../text_editor';
 
 export default class Question extends Component {
   constructor(props) {
