@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import GreetingContainer from './greeting/greeting_container';
 import { Link, hashHistory } from 'react-router';
+import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
   const { children, loading } = props;
@@ -20,7 +21,7 @@ const App = (props) => {
           </h1>
         </div>
         <div className="navbar-center">
-          <SearchBar />
+          <SearchBar fetchQuestions={props.fetchQuestions} />
         </div>
         <div className="navbar-right">
           <GreetingContainer />
@@ -50,11 +51,7 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return ({
-    loading: state.loading
-  });
-};
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -66,7 +63,9 @@ class SearchBar extends Component {
 
   searchRoute(e) {
     e.preventDefault();
-    hashHistory.push(`/search?title=${this.state.title}`);
+    const {title} = this.state;
+    this.props.fetchQuestions({title})
+    .then(() => hashHistory.push(`/search?title=${this.state.title}`));
   }
 
   updateData(e) {
@@ -85,4 +84,18 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapStateToProps = (state) => {
+  return ({
+    loading: state.loading
+  });
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    fetchQuestions: (data) => dispatch(fetchQuestions(data))
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(App);

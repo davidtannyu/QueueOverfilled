@@ -4,8 +4,10 @@ import { fetchQuestions } from '../../actions/question_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const questions = (ownProps.questions) || state.questions;
+  const { loaded } = ownProps;
   return {
-  questions
+    questions,
+    loaded
   };
 };
 

@@ -5,7 +5,9 @@ import QuestionIndexItem from './question_index_item';
 export default class QuestionIndex extends Component {
 
   componentDidMount() {
-    this.props.fetchQuestions();
+    if (!this.props.loaded) {
+      this.props.fetchQuestions();
+    }
   }
 
   render() {

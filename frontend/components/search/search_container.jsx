@@ -4,6 +4,7 @@ import { fetchQuestions } from "../../actions/question_actions";
 import Search from './search';
 
 const mapStateToProps = (state) => {
+  debugger;
   const {questions} = state;
   return {
     questions
