@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import GreetingContainer from './greeting/greeting_container';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 const App = (props) => {
   const { children, loading } = props;
@@ -18,6 +18,9 @@ const App = (props) => {
               Queue <strong>Overfilled</strong>
             </Link>
           </h1>
+        </div>
+        <div className="navbar-center">
+          <SearchBar />
         </div>
         <div className="navbar-right">
           <GreetingContainer />
@@ -52,5 +55,34 @@ const mapStateToProps = (state) => {
     loading: state.loading
   });
 };
+
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { title: "" };
+    this.searchRoute = this.searchRoute.bind(this);
+    this.updateData = this.updateData.bind(this);
+  }
+
+  searchRoute(e) {
+    e.preventDefault();
+    hashHistory.push(`/search?title=${this.state.title}`);
+  }
+
+  updateData(e) {
+    e.preventDefault();
+    this.setState({title: e.target.value});
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.searchRoute}>
+        <input placeholder="Search..."
+          onChange={this.updateData}
+          />
+      </form>
+    );
+  }
+}
 
 export default connect(mapStateToProps)(App);

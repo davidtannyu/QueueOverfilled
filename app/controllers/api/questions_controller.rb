@@ -3,7 +3,8 @@ class Api::QuestionsController < ApplicationController
   def index
     @questions = Question.includes(:author, :answers, :answers_authors).all
     if (search)
-      @questions = @questions.where("title LIKE ?", "%#{search[:title]}%")
+      @questions = @questions
+        .where("lower(title) LIKE ?", "%#{search[:title].downcase}%")
     end
   end
 

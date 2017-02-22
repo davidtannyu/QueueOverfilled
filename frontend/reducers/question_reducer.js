@@ -10,7 +10,8 @@ export default function questionsReducer (state = {}, action) {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_QUESTIONS:
-      return action.questions;
+      const questions = action.questions || {};
+      return questions;
     case RECEIVE_QUESTION:
       return action.question;
     case REMOVE_QUESTION:

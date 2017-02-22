@@ -10,6 +10,7 @@ import QuestionContainer from './question/question_container';
 import SearchContainer from './search/search_container';
 import { resetErrors } from '../actions/error_actions';
 import { receiveAnswers } from '../actions/answer_actions';
+import { receiveQuestions } from '../actions/question_actions';
 
 const Root = (props) => {
   const {store} = props;
@@ -29,6 +30,7 @@ const Root = (props) => {
   }
 
   function clear() {
+    store.dispatch(receiveQuestions({}));
     store.dispatch(receiveAnswers({}));
     store.dispatch(resetErrors());
   }
