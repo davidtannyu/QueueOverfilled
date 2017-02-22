@@ -1,7 +1,9 @@
 class Api::QuestionsController < ApplicationController
 
   def index
-    @questions = Question.includes(:author, :answers, :answers_authors).all
+    @questions = Question
+    .includes(:author, :answers, :answers_authors)
+    .all
     if (search)
       @questions = @questions
         .where("lower(title) LIKE ?", "%#{search[:title].downcase}%")
@@ -18,7 +20,13 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.includes(:author, :answers, :answers_authors).find(params[:id])
+    @question = Question
+    .includes(:author, :answers, :answers_authors, :answers_votes)
+    .find(params[:id])
+
+    if (params[:voterId])
+      @votes = @question.answers_votes.where(voter_id: params[:voterId])
+    end
     if @question
       render :show
     else

@@ -6,10 +6,11 @@ export const fetchQuestions = (search) => {
   });
 };
 
-export const fetchQuestion = (id) => {
+export const fetchQuestion = (id, voterId) => {
   return $.ajax({
     method: "GET",
-    url: `api/questions/${id}`
+    url: `api/questions/${id}`,
+    data: { voterId }
   });
 };
 

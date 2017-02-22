@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions';
 import { loading } from './loading';
 
 export const RECEIVE_VOTE = "RECEIVE_VOTE";
+export const RECEIVE_VOTES = "RECEIVE_VOTES";
 
 export const createVote = (vote) => dispatch => {
   dispatch(loading());
@@ -22,5 +23,12 @@ export const receiveVote = (vote) => {
   return ({
     type: RECEIVE_VOTE,
     vote
+  });
+};
+
+export const receiveVotes = (votes) => {
+  return ({
+    type: RECEIVE_VOTES,
+    votes
   });
 };

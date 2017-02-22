@@ -15,7 +15,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.params.id)
+    this.props.fetchQuestion(this.props.params.id, this.props.currentUser.id)
     .then( (question) => {
       const {answers_count} = question;
       this.setState({answers_count});
