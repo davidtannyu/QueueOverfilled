@@ -5,7 +5,7 @@ import { Link, hashHistory } from 'react-router';
 import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  const { children, loading } = props;
+  const { children, loading, clear } = props;
   let loadingIcon = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
@@ -21,7 +21,7 @@ const App = (props) => {
           </h1>
         </div>
         <div className="navbar-center">
-          <SearchBar fetchQuestions={props.fetchQuestions} />
+          <SearchBar fetchQuestions={props.fetchQuestions} clear={clear} />
         </div>
         <div className="navbar-right">
           <GreetingContainer />
@@ -73,20 +73,28 @@ class SearchBar extends Component {
     this.setState({title: e.target.value});
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.clear !== newProps.clear && newProps.clear) {
+      this.setState({title: ""});
+    }
+  }
+
   render() {
     return (
       <form onSubmit={this.searchRoute}>
         <input placeholder="Search..."
           onChange={this.updateData}
-          />
+          value={this.state.title}/>
       </form>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const clear = (ownProps.location.pathname !== "/search");
   return ({
-    loading: state.loading
+    loading: state.loading,
+    clear
   });
 };
 
