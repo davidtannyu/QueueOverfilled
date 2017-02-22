@@ -5,7 +5,8 @@ import {parseText} from '../util/text_util';
 export default class TextEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { preview: "", body: "" };
+    const {value} = props;
+    this.state = { preview: parseText(value), body: value };
     this.handleField = this.handleField.bind(this);
     this.addStrongText = this.addStrongText.bind(this);
     this.addItalicText = this.addItalicText.bind(this);
@@ -38,6 +39,13 @@ export default class TextEditor extends Component {
     let value = `${this.state.body} *italic*`;
     e.target = { value };
     this.handleField(e);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.value !== this.props.value) {
+      const { value } = newProps;
+      this.setState({preview: parseText(value), body: value});
+    }
   }
 
   render() {
