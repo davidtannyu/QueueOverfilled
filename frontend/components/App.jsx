@@ -65,7 +65,7 @@ class SearchBar extends Component {
     e.preventDefault();
     const {title} = this.state;
     this.props.fetchQuestions({title})
-    .then(() => hashHistory.push(`/search?title=${this.state.title}`));
+    .then(() => hashHistory.push(`/search?title=${encodeURIComponent(this.state.title)}`));
   }
 
   updateData(e) {

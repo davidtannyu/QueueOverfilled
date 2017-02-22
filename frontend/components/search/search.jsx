@@ -17,6 +17,14 @@ export default class Search extends Component {
     this.props.fetchQuestions({ title });
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.location.search !== newProps.location.search) {
+      this.setState({
+        title: decodeURIComponent(newProps.location.search.slice(7))
+      });
+    }
+  }
+
   updateSearch(e) {
     e.preventDefault();
     this.setState( { title: e.target.value });
@@ -27,7 +35,7 @@ export default class Search extends Component {
     const { title } = this.state;
     if (title) {
       this.props.fetchQuestions({ title })
-      .then(() => hashHistory.push(`/search?title=${this.state.title}`));
+      .then(() => hashHistory.push(`/search?title=${encodeURIComponent(this.state.title)}`));
     }
   }
 
