@@ -1,6 +1,7 @@
 .navbar {
   display:flex;
   justify-content: space-around;
+  align-content: center;
   align-items: baseline;
   border-bottom: 1px solid #e4e6e8;
   border-top: 3px solid purple;
@@ -13,8 +14,8 @@
   height: auto;
 }
 
-.navbar-left, .navbar-right {
-  margin: 10px 0;
+.navbar-left, .navbar-right, .navbar-center {
+  margin: 10px 10px;
 }
 
 .navbar-left {

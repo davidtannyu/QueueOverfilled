@@ -87,7 +87,8 @@ class SearchBar extends Component {
   render() {
     return (
       <form onSubmit={this.searchRoute}>
-        <input placeholder="Search..."
+        <input className="navbar-search" 
+          placeholder="Search..."
           onChange={this.updateData}
           value={this.state.title}/>
       </form>
