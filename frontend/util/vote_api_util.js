@@ -13,3 +13,11 @@ export const updateVote = (vote) => {
     data: { vote }
   });
 };
+
+export const fetchVote = (voterId, answerId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/answers/${answerId}/votes`,
+    data: { voterId }
+  });
+};

@@ -1,5 +1,14 @@
 class Api::VotesController < ApplicationController
 
+  def index
+    @votes = Answer
+    .find(params[:answer_id])
+    .votes
+    .where(voter_id: params[:voterId])
+
+    render json: @votes
+  end
+
   def create
     @vote = Vote.new(vote_params)
     Vote.transaction do
