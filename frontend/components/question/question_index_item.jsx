@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router';
+import {parseText} from '../../util/text_util';
 
 const QuestionIndexItem = (props) => {
   let { question, loaded } = props;
@@ -7,7 +8,8 @@ const QuestionIndexItem = (props) => {
   if (loaded) {
     body = (
       <div>
-        {question.body.split(".")[0] + "..."}
+        <p dangerouslySetInnerHTML={{__html: parseText(question.body.split(".")[0] + "...")}}>
+        </p>
       </div>
     );
   }
