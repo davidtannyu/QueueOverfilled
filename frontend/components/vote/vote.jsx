@@ -11,10 +11,12 @@ export default class Vote extends Component {
     const { vote } = this.state;
     let upvote = "";
     let downvote = "";
-    if (vote.value === 1) {
-      upvote = "selected";
-    } else if (vote.value === -1) {
-      downvote = "selected";
+    if (vote) {
+      if (vote.value === 1) {
+        upvote = "selected";
+      } else if (vote.value === -1) {
+        downvote = "selected";
+      }
     }
     return (
       <div className="vote-component">

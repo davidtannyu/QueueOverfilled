@@ -6,7 +6,7 @@ import Vote from './vote';
 const mapStateToProps = (state, ownProps) => {
   const {voteCount} = ownProps;
   let currentVote = {};
-  Object.values(state.votes).each((vote) => {
+  Object.values(state.votes).forEach((vote) => {
     if (vote.voter_id === state.currentUser.id &&
       vote.answer_id === ownProps.answer_id) {
         currentVote = vote;
