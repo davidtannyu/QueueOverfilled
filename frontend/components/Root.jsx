@@ -7,8 +7,10 @@ import SessionFormContainer from './session_form/session_form_container';
 import QuestionIndexContainer from './question/question_index_container';
 import QuestionFormContainer from './question/question_form_container';
 import QuestionContainer from './question/question_container';
+import SearchContainer from './search/search_container';
 import { resetErrors } from '../actions/error_actions';
 import { receiveAnswers } from '../actions/answer_actions';
+import { receiveQuestions } from '../actions/question_actions';
 
 const Root = (props) => {
   const {store} = props;
@@ -28,6 +30,7 @@ const Root = (props) => {
   }
 
   function clear() {
+    store.dispatch(receiveQuestions({}));
     store.dispatch(receiveAnswers({}));
     store.dispatch(resetErrors());
   }
@@ -56,6 +59,9 @@ const Root = (props) => {
             formType="edit"
             component={QuestionFormContainer}
             onEnter={ensureLoggedIn} />
+          <Route path="/search"
+            component={SearchContainer}
+            onEnter={clear}/>
         </Route>
       </Router>
     </Provider>

@@ -1,0 +1,31 @@
+.search-content {
+  display: flex;
+  justify-content: center;
+}
+
+div.searched-question-index-list .main-bar {
+  margin-left: 0;
+}
+
+.search-input {
+  width: 80%;
+  font-size: 15px;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+  padding: 8px 10px;
+}
+
+.navbar-search {
+  padding: 8px 16px;
+  color: #6a737c;
+  font-size: 14px;
+  width: 200px;
+  transition: width 1s;
+}
+
+.navbar-search:focus {
+  width: 200%;
+}
+
+.navbar-center {
+  width: 200px;
+}

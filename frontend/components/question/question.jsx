@@ -42,6 +42,13 @@ export default class Question extends Component {
         this.setState({answers_count: updatedAnswersCount});
       }
     }
+    if (this.props.location.pathname != newProps.location.pathname) {
+      this.props.fetchQuestion(newProps.params.id)
+      .then( (question) => {
+        const {answers_count} = question;
+        this.setState({answers_count});
+      });
+    }
   }
 
   render() {

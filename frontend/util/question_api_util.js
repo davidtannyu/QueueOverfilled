@@ -1,7 +1,8 @@
-export const fetchQuestions = () => {
+export const fetchQuestions = (search) => {
   return $.ajax({
     method: "GET",
-    url: "api/questions"
+    url: "api/questions",
+    data: { search }
   });
 };
 

@@ -2,8 +2,15 @@ import React from "react";
 import {Link} from 'react-router';
 
 const QuestionIndexItem = (props) => {
-  let { question } = props;
-
+  let { question, loaded } = props;
+  let body = "";
+  if (loaded) {
+    body = (
+      <div>
+        {question.body.split(".")[0] + "..."}
+      </div>
+    );
+  }
   let lastUpdate;
   if (!question.last_answer) {
     lastUpdate = (
@@ -41,11 +48,12 @@ const QuestionIndexItem = (props) => {
           <br />answers
           </div>
           <div className="summary">
-          <div>
-          <Link to={`/questions/${question.id}`}>
-            {question.title}
-          </Link>
-          </div>
+            <div>
+              <Link to={`/questions/${question.id}`}>
+                {question.title}
+              </Link>
+            </div>
+          {body}
           {lastUpdate}
           </div>
         </div>

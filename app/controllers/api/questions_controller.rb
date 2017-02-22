@@ -2,6 +2,10 @@ class Api::QuestionsController < ApplicationController
 
   def index
     @questions = Question.includes(:author, :answers, :answers_authors).all
+    if (search)
+      @questions = @questions
+        .where("lower(title) LIKE ?", "%#{search[:title].downcase}%")
+    end
   end
 
   def create
@@ -53,5 +57,9 @@ class Api::QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:title, :body, :author_id)
+  end
+
+  def search
+    params[:search]
   end
 end

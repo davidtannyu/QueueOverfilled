@@ -16,8 +16,8 @@ export const receiveQuestions = (questions) => {
   };
 };
 
-export const fetchQuestions = () => dispatch => {
-  return QuestionApiUtil.fetchQuestions()
+export const fetchQuestions = (search) => dispatch => {
+  return QuestionApiUtil.fetchQuestions(search)
   .then(obj => dispatch( receiveQuestions(obj.questions)),
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));
 };

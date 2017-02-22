@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import GreetingContainer from './greeting/greeting_container';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  const { children, loading } = props;
+  const { children, loading, clear, title } = props;
   let loadingIcon = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
@@ -18,6 +19,10 @@ const App = (props) => {
               Queue <strong>Overfilled</strong>
             </Link>
           </h1>
+        </div>
+        <div className="navbar-center">
+          <SearchBar fetchQuestions={props.fetchQuestions} clear={clear}
+            title={title} />
         </div>
         <div className="navbar-right">
           <GreetingContainer />
@@ -47,10 +52,69 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+
+
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    const {title} = props;
+    this.state = { title };
+    this.searchRoute = this.searchRoute.bind(this);
+    this.updateData = this.updateData.bind(this);
+  }
+
+  searchRoute(e) {
+    e.preventDefault();
+    const {title} = this.state;
+    this.props.fetchQuestions({title})
+    .then(() => hashHistory.push(`/search?title=${encodeURIComponent(this.state.title)}`));
+  }
+
+  updateData(e) {
+    e.preventDefault();
+    this.setState({title: e.target.value});
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.clear !== newProps.clear && newProps.clear) {
+      this.setState({title: ""});
+    }
+    if (this.props.title !== newProps.title) {
+      this.setState({title: newProps.title});
+    }
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.searchRoute}>
+        <input className="navbar-search" 
+          placeholder="Search..."
+          onChange={this.updateData}
+          value={this.state.title}/>
+      </form>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  const clear = (ownProps.location.pathname !== "/search");
+  let title = "";
+  if (ownProps.location.search) {
+    title = decodeURIComponent(ownProps.location.search.slice(7));
+  }
   return ({
-    loading: state.loading
+    loading: state.loading,
+    clear,
+    title
   });
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    fetchQuestions: (data) => dispatch(fetchQuestions(data))
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(App);
