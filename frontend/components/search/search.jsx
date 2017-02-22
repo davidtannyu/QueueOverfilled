@@ -19,9 +19,9 @@ export default class Search extends Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.location.search !== newProps.location.search) {
-      this.setState({
-        title: decodeURIComponent(newProps.location.search.slice(7))
-      });
+      const title = decodeURIComponent(newProps.location.search.slice(7));
+      this.props.fetchQuestions({ title });
+      this.setState({title});
     }
   }
 
