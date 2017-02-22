@@ -6,14 +6,14 @@ import QuestionIndexContainer from '../question/question_index_container';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    const title = props.location.search.slice(7);
+    const title = decodeURIComponent(props.location.search.slice(7));
     this.state = { title };
     this.updateSearch = this.updateSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    const title = this.props.location.search.slice(7);
+    const title = decodeURIComponent(this.props.location.search.slice(7));
     this.props.fetchQuestions({ title });
   }
 
