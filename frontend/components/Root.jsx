@@ -8,6 +8,7 @@ import QuestionIndexContainer from './question/question_index_container';
 import QuestionFormContainer from './question/question_form_container';
 import QuestionContainer from './question/question_container';
 import { resetErrors } from '../actions/error_actions';
+import { receiveAnswers } from '../actions/answer_actions';
 
 const Root = (props) => {
   const {store} = props;
@@ -26,7 +27,8 @@ const Root = (props) => {
     store.dispatch(resetErrors());
   }
 
-  function clearErrors() {
+  function clear() {
+    store.dispatch(receiveAnswers({}));
     store.dispatch(resetErrors());
   }
 
@@ -49,7 +51,7 @@ const Root = (props) => {
             onEnter={ensureLoggedIn} />
           <Route path="/questions/:id"
             component={QuestionContainer}
-            onEnter={clearErrors}/>
+            onEnter={clear}/>
           <Route path="/questions/:id/edit"
             formType="edit"
             component={QuestionFormContainer}
