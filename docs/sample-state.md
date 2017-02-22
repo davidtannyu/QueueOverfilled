@@ -46,6 +46,7 @@
       answer_id: 4,
       value: -1
     }
-  }
+  },
+  loading: false
 }
 ```
