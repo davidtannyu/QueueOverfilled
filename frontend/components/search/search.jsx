@@ -6,9 +6,15 @@ import QuestionIndexContainer from '../question/question_index_container';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "" };
+    const title = props.location.search.slice(7);
+    this.state = { title };
     this.updateSearch = this.updateSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const title = this.props.location.search.slice(7);
+    this.props.fetchQuestions({ title });
   }
 
   updateSearch(e) {
@@ -19,8 +25,10 @@ export default class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { title } = this.state;
-    this.props.fetchQuestions({ title })
-    .then(() => hashHistory.push(`/search?title=${this.state.title}`));
+    if (title) {
+      this.props.fetchQuestions({ title })
+      .then(() => hashHistory.push(`/search?title=${this.state.title}`));
+    }
   }
 
   render() {

@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { fetchQuestions } from "../../actions/question_actions";
 import Search from './search';
 
-const mapStateToProps = (state) => {
-  debugger;
+const mapStateToProps = (state, ownProps) => {
+  const { title } = ownProps.location.search.slice(7) || "";
   const {questions} = state;
   return {
-    questions
+    questions,
+    title
   };
 };
 
