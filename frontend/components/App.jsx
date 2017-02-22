@@ -5,7 +5,7 @@ import { Link, hashHistory } from 'react-router';
 import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  const { children, loading, clear } = props;
+  const { children, loading, clear, title } = props;
   let loadingIcon = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
@@ -21,7 +21,8 @@ const App = (props) => {
           </h1>
         </div>
         <div className="navbar-center">
-          <SearchBar fetchQuestions={props.fetchQuestions} clear={clear} />
+          <SearchBar fetchQuestions={props.fetchQuestions} clear={clear}
+            title={title} />
         </div>
         <div className="navbar-right">
           <GreetingContainer />
@@ -56,7 +57,8 @@ const App = (props) => {
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "" };
+    const {title} = props;
+    this.state = { title };
     this.searchRoute = this.searchRoute.bind(this);
     this.updateData = this.updateData.bind(this);
   }
@@ -77,6 +79,9 @@ class SearchBar extends Component {
     if (this.props.clear !== newProps.clear && newProps.clear) {
       this.setState({title: ""});
     }
+    if (this.props.title !== newProps.title) {
+      this.setState({title: newProps.title});
+    }
   }
 
   render() {
@@ -92,9 +97,14 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const clear = (ownProps.location.pathname !== "/search");
+  let title = "";
+  if (ownProps.location.search) {
+    title = decodeURIComponent(ownProps.location.search.slice(7));
+  }
   return ({
     loading: state.loading,
-    clear
+    clear,
+    title
   });
 };
 
