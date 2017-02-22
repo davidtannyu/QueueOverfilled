@@ -36,12 +36,9 @@
 - `POST /api/answers`
 - `GET /api/answers/:id`
 - `DELETE /api/answers/:id`
-
-- `GET /api/answer/:answer_id/votes`
-  - gets all votes for answer
-
+- `PATCH /api/answers/:id`
 
 ### Upvote / Downvote
 
 - `POST /api/votes`
-- `DELETE /api/votes/:id`
+- `PATCH /api/votes/:id`
