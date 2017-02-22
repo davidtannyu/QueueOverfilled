@@ -33,9 +33,9 @@ div.question-form .input-field {
 }
 
 div.question-form .error-text {
-  position: absolute;
-  color: white;
+  position: relative;
   bottom: -18px;
+  color: white;
   width: 200px;
   display: inline-block;
   background-color: #C04848;
