@@ -19,9 +19,13 @@ div.searched-question-index-list .main-bar {
   color: #6a737c;
   font-size: 14px;
   width: 200px;
-  transition: width 2s;
+  transition: width 1s;
 }
 
 .navbar-search:focus {
   width: 200%;
+}
+
+.navbar-center {
+  width: 200px;
 }

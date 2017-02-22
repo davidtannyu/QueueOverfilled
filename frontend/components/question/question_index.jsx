@@ -18,7 +18,8 @@ export default class QuestionIndex extends Component {
           <p className="header-text">Top Questions</p>
             <ul className="question-index-list">
               { questions.map (question => (
-                <QuestionIndexItem key={question.id} question={question} />
+                <QuestionIndexItem key={question.id} question={question}
+                  loaded={this.props.loaded} />
               ))}
             </ul>
         </div>
