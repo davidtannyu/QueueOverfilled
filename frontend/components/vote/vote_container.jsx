@@ -4,7 +4,7 @@ import { createVote, updateVote } from "../../actions/vote_actions";
 import Vote from './vote';
 
 const mapStateToProps = (state, ownProps) => {
-  const {vote_count} = ownProps;
+  const {voteCount} = ownProps;
   let currentVote = {};
   Object.values(state.votes).each((vote) => {
     if (vote.voter_id === state.currentUser.id &&
@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
   });
   return {
     currentVote,
-    vote_count
+    voteCount
   };
 };
 

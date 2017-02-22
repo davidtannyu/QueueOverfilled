@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import AnswerFormContainer from './answer_form_container';
 import {parseText} from '../../util/text_util';
+import VoteContainer from '../vote/vote_container';
 
 export default class AnswerIndex extends Component {
 
@@ -94,6 +95,7 @@ class AnswerIndexItem extends Component {
     return (
       <li >
         <div className="answer-index-item">
+          <VoteContainer voteCount={answer.vote_count}/>
           {answer_body}
           <div className="answer-author">
             <Link to={`/users/${answer.author.id}`}>

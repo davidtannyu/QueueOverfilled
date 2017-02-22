@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 export default class Vote extends Component {
   constructor(props) {
     super(props);
-    const {vote_count, vote} = props;
-    this.state = { vote_count, vote };
+    const {voteCount, vote} = props;
+    this.state = { voteCount, vote };
   }
 
   render() {
@@ -23,8 +23,8 @@ export default class Vote extends Component {
             ^
           </p>
         </div>
-        <div className="vote_count">
-          { this.state.vote_count }
+        <div className="vote-count">
+          { this.state.voteCount }
         </div>
         <div className="downvote">
           <p className={downvote}>
