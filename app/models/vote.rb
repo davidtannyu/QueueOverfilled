@@ -11,6 +11,8 @@
 class Vote < ActiveRecord::Base
   validates :voter, :answer, presence: true
   validates :value, inclusion: { in: -1..1 }
+  validates :voter, uniqueness: {scope: :answer,
+  message: "has a vote already"}
 
   belongs_to :voter,
   class_name: "User",
