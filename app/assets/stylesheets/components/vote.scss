@@ -14,6 +14,10 @@ i.downvote-arrow {
   transform: rotate(45deg);
 }
 
+i.downvote-arrow:hover, i.upvote-arrow:hover {
+  cursor: pointer;
+}
+
 .selected i.upvote-arrow {
   border: solid orange;
   border-width: 0 3px 3px 0;
