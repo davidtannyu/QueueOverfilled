@@ -13,6 +13,15 @@ export default class QuestionIndex extends Component {
 
   render() {
     let questions = Object.values(this.props.questions);
+    questions = questions.sort( (a,b) => {
+      if (a.updated_at < b.updated_at) {
+        return 1;
+      } else if (a.updated_at > b.updated_at) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     return (
       <div className="content">
         <div className="main-bar">
