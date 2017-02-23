@@ -39,6 +39,7 @@ export default class Vote extends Component {
           currentVote: Object.values(action.vote)[0]
         }));
       }
+      this.props.fetchAnswer(this.props.answerId);
     }
   }
 
@@ -79,6 +80,7 @@ export default class Vote extends Component {
           this.setState({currentVote: Object.values(action.vote)[0]});
         });
       }
+      this.props.fetchAnswer(this.props.answerId);
     }
   }
 

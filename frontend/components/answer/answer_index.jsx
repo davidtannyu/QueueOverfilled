@@ -8,6 +8,15 @@ export default class AnswerIndex extends Component {
 
   render() {
     let answers = Object.values(this.props.answers);
+    answers = answers.sort( (a,b) => {
+      if (a.vote_count < b.vote_count) {
+        return 1;
+      } else if (a.vote_count > b.vote_count) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     return (
       <div>
         <ul className="answer-index-list">

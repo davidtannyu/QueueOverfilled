@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createVote, updateVote } from "../../actions/vote_actions";
+import { fetchAnswer } from "../../actions/answer_actions";
 import Vote from './vote';
 
 const mapStateToProps = (state, ownProps) => {
@@ -25,7 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createVote: (vote) => dispatch(createVote(vote)),
-    updateVote: (vote) => dispatch(updateVote(vote))
+    updateVote: (vote) => dispatch(updateVote(vote)),
+    fetchAnswer: (answerId) => dispatch(fetchAnswer(answerId))
   };
 };
 
