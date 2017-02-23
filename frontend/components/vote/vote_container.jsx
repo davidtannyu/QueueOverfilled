@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   const {voteCount, answerId} = ownProps;
   let currentVote = {};
   Object.values(state.votes).forEach((vote) => {
-    if (vote.voter_id === currentUser.id &&
+    if (currentUser && vote.voter_id === currentUser.id &&
       vote.answer_id === answerId) {
         currentVote = vote;
         return false;
