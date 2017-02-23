@@ -3,15 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/Root';
 
-import * as SessionApiUtil from './util/session_api_util';
-import * as SessionActions from './actions/user_actions';
-import * as QuestionApiUtil from './util/question_api_util';
-import * as QuestionActions from './actions/question_actions';
-import * as AnswerApiUtil from './util/answer_api_util';
-import * as AnswerActions from './actions/answer_actions';
-import * as VoteApiUtil from './util/vote_api_util';
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let preloadedState = {};
@@ -20,13 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     preloadedState = { currentUser };
   }
   const store = configureStore(preloadedState);
-  window.store = store;
-  window.session = SessionApiUtil;
-  window.action = SessionActions;
-  window.questionAction = QuestionActions;
-  window.questionApi = QuestionApiUtil;
-  window.answersApi = AnswerApiUtil;
-  window.answerAction = AnswerActions;
-  window.voteApi = VoteApiUtil;
   ReactDOM.render(<Root store={store} />, root);
 });
