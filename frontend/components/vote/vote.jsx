@@ -12,7 +12,7 @@ export default class Vote extends Component {
   upVote(e) {
     e.preventDefault();
     if (this.props.currentUser){
-      let { currentVote } = this.props;
+      let { currentVote, answer } = this.props;
       let { voteCount } = this.state;
       if ( currentVote.id ) {
         if (currentVote.value === 1) {
@@ -39,7 +39,8 @@ export default class Vote extends Component {
           currentVote: Object.values(action.vote)[0]
         }));
       }
-      this.props.fetchAnswer(this.props.answerId);
+      answer.vote_count = voteCount;
+      this.props.receiveAnswer({[answer.id]: answer});
     }
   }
 
@@ -53,7 +54,7 @@ export default class Vote extends Component {
   downVote(e) {
     e.preventDefault();
     if (this.props.currentUser){
-      let { currentVote } = this.props;
+      let { currentVote, answer } = this.props;
       let { voteCount } = this.state;
       if ( currentVote.id ) {
         if (currentVote.value === -1) {
@@ -80,7 +81,8 @@ export default class Vote extends Component {
           this.setState({currentVote: Object.values(action.vote)[0]});
         });
       }
-      this.props.fetchAnswer(this.props.answerId);
+      answer.vote_count = voteCount;
+      this.props.receiveAnswer({[answer.id]: answer});
     }
   }
 
