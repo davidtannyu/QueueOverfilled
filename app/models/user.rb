@@ -60,4 +60,8 @@ class User < ActiveRecord::Base
   has_many :answers,
   foreign_key: :author_id,
   dependent: :destroy
+
+  has_many :votes,
+  foreign_key: :voter_id,
+  dependent: :destroy
 end

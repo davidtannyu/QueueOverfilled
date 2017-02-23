@@ -26,4 +26,8 @@ class Question < ActiveRecord::Base
   has_many :answers_authors,
   through: :answers,
   source: :author
+
+  has_many :answers_votes,
+  through: :answers,
+  source: :votes
 end

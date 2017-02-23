@@ -32,7 +32,17 @@
 .question-index-item .summary {
   padding-left: 10px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.question-index-item .title {
+  padding-left: 10px;
+  width: 100%;
+  word-break: break-all;
+}
+
 
 .question-index-item .last-update {
   margin-right: 0%;

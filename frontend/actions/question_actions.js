@@ -2,6 +2,7 @@ import * as QuestionApiUtil from '../util/question_api_util';
 import { receiveErrors } from './error_actions';
 import { receiveAnswers } from './answer_actions';
 import { loading } from './loading';
+import { receiveVotes } from './vote_actions';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
@@ -29,9 +30,9 @@ export const receiveQuestion = (question) => {
   };
 };
 
-export const fetchQuestion = (id) => dispatch => {
+export const fetchQuestion = (id, voterId) => dispatch => {
   dispatch(loading());
-  return QuestionApiUtil.fetchQuestion(id)
+  return QuestionApiUtil.fetchQuestion(id, voterId)
   .then(obj => {
     dispatch( receiveQuestion(obj.question));
     let answers = obj.answers;
@@ -39,6 +40,11 @@ export const fetchQuestion = (id) => dispatch => {
       answers = {};
     }
     dispatch( receiveAnswers(answers));
+    let votes = obj.votes;
+    if (!votes) {
+      votes = {};
+    }
+    dispatch( receiveVotes(votes));
     return obj.question[id];
   },
   errors => dispatch(receiveErrors(errors.responseJSON, "question")));

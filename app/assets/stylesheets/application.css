@@ -26,6 +26,7 @@
    text-align: inherit;
    color: inherit;
    background: transparent;
+   word-wrap: break-word;
  }
 
  html, body {

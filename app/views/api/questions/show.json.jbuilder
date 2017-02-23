@@ -22,3 +22,13 @@ json.answers do
     end
   end
 end
+
+json.votes do
+  if (@votes)
+    @votes.each do |vote|
+      json.set! vote.id do
+        json.extract! vote, :id, :value, :voter_id, :answer_id
+      end
+    end
+  end
+end

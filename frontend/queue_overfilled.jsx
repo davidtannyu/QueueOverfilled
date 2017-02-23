@@ -9,6 +9,7 @@ import * as QuestionApiUtil from './util/question_api_util';
 import * as QuestionActions from './actions/question_actions';
 import * as AnswerApiUtil from './util/answer_api_util';
 import * as AnswerActions from './actions/answer_actions';
+import * as VoteApiUtil from './util/vote_api_util';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,8 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.session = SessionApiUtil;
   window.action = SessionActions;
   window.questionAction = QuestionActions;
-  window.question = QuestionApiUtil;
-  window.answer = AnswerApiUtil;
+  window.questionApi = QuestionApiUtil;
+  window.answersApi = AnswerApiUtil;
   window.answerAction = AnswerActions;
+  window.voteApi = VoteApiUtil;
   ReactDOM.render(<Root store={store} />, root);
 });

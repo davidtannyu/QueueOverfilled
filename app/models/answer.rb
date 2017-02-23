@@ -3,7 +3,7 @@
 # Table name: answers
 #
 #  id          :integer          not null, primary key
-#  body        :string           not null
+#  body        :text             not null
 #  vote_count  :integer          default("0")
 #  author_id   :integer          not null
 #  question_id :integer          not null
@@ -23,4 +23,6 @@ class Answer < ActiveRecord::Base
   class_name: "User",
   foreign_key: :author_id,
   inverse_of: :answers
+
+  has_many :votes
 end
