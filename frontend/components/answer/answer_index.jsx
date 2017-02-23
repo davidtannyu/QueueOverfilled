@@ -96,11 +96,13 @@ class AnswerIndexItem extends Component {
       <li >
         <div className="answer-index-item">
           <VoteContainer voteCount={answer.vote_count}/>
-          {answer_body}
-          <div className="answer-author">
-            <Link to={`/users/${answer.author.id}`}>
-              {answer.author.display_name}
-            </Link>
+          <div className="answer-content">
+            {answer_body}
+            <div className="answer-author">
+              <Link to={`/users/${answer.author.id}`}>
+                {answer.author.display_name}
+              </Link>
+            </div>
           </div>
           <div className="inline-buttons">
             {editButton}

@@ -5,8 +5,16 @@
 }
 
 .answer-index-item {
+  display: flex;
   padding: 10px;
   border-bottom: 1px solid #e4e6e8;
+}
+.answer-index-item .answer-content {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 3%;
 }
 
 .answer-author {
