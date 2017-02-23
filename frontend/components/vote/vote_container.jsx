@@ -4,18 +4,21 @@ import { createVote, updateVote } from "../../actions/vote_actions";
 import Vote from './vote';
 
 const mapStateToProps = (state, ownProps) => {
-  const {voteCount} = ownProps;
+  const { currentUser } = state;
+  const {voteCount, answerId} = ownProps;
   let currentVote = {};
   Object.values(state.votes).forEach((vote) => {
-    if (vote.voter_id === state.currentUser.id &&
-      vote.answer_id === ownProps.answer_id) {
+    if (vote.voter_id === currentUser.id &&
+      vote.answer_id === answerId) {
         currentVote = vote;
         return false;
     }
   });
   return {
     currentVote,
-    voteCount
+    voteCount,
+    answerId,
+    currentUser
   };
 };
 

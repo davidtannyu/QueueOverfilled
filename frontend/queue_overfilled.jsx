@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.session = SessionApiUtil;
   window.action = SessionActions;
   window.questionAction = QuestionActions;
-  window.question = QuestionApiUtil;
-  window.answer = AnswerApiUtil;
+  window.questionApi = QuestionApiUtil;
+  window.answersApi = AnswerApiUtil;
   window.answerAction = AnswerActions;
-  window.vote = VoteApiUtil;
+  window.voteApi = VoteApiUtil;
   ReactDOM.render(<Root store={store} />, root);
 });

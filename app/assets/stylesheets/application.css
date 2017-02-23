@@ -148,3 +148,13 @@ i.downvote-arrow {
   padding: 3px;
   transform: rotate(45deg);
 }
+
+.selected i.upvote-arrow {
+  border: solid orange;
+  border-width: 0 3px 3px 0;
+}
+
+.selected i.downvote-arrow {
+  border: solid orange;
+  border-width: 0 3px 3px 0;
+}

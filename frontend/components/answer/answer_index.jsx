@@ -95,7 +95,8 @@ class AnswerIndexItem extends Component {
     return (
       <li >
         <div className="answer-index-item">
-          <VoteContainer voteCount={answer.vote_count}/>
+          <VoteContainer voteCount={answer.vote_count}
+            answerId={answer.id}/>
           <div className="answer-content">
             {answer_body}
             <div className="answer-author">
