@@ -15,8 +15,15 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.params.id, this.props.currentUser.id)
-    .then( (question) => {
+    let promise;
+    if (this.props.currentUser) {
+      promise =
+      this.props.fetchQuestion(this.props.params.id, this.props.currentUser.id);
+    } else {
+      promise =
+      this.props.fetchQuestion(this.props.params.id);
+    }
+    promise.then( (question) => {
       const {answers_count} = question;
       this.setState({answers_count});
     });
