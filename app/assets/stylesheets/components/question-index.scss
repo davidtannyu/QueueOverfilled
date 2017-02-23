@@ -19,8 +19,12 @@
 }
 
 .question-index-item .answer-count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
+  width: 70px;
   margin-bottom: 10px;
   margin-right: 10px;
 }
