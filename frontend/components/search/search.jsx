@@ -50,10 +50,6 @@ export default class Search extends Component {
 
   render() {
     const { questions } = this.props;
-    let selected="";
-    if (this.onChangeUpdate) {
-      selected="selected";
-    }
     return (
       <div className="search-content">
         <div className="main-bar">
@@ -64,8 +60,9 @@ export default class Search extends Component {
                 value={this.state.title}/>
               <button className="blue-button">Search</button>
             </form>
-            <input type="checkbox" onChange={this.updateCheckbox}
-              selected={selected} />Search as I type
+            <input className="search-real-time"
+              type="checkbox"
+              onChange={this.updateCheckbox}/>Search As You Type Real-Time
           </div>
           <div className="searched-question-index-list">
             <QuestionIndexContainer questions={questions} loaded={true}/>
