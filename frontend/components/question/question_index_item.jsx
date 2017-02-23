@@ -50,7 +50,7 @@ const QuestionIndexItem = (props) => {
           <br />answers
           </div>
           <div className="summary">
-            <div>
+            <div className="title">
               <Link to={`/questions/${question.id}`}>
                 {question.title}
               </Link>
