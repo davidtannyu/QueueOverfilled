@@ -8,7 +8,9 @@ export default class Search extends Component {
     super(props);
     const title = decodeURIComponent(props.location.search.slice(7));
     this.state = { title };
+    this.onChangeUpdate = false;
     this.updateSearch = this.updateSearch.bind(this);
+    this.updateCheckbox = this.updateCheckbox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -25,9 +27,16 @@ export default class Search extends Component {
     }
   }
 
+  updateCheckbox(e) {
+    this.onChangeUpdate = !this.onChangeUpdate;
+  }
+
   updateSearch(e) {
     e.preventDefault();
     this.setState( { title: e.target.value });
+    if (this.onChangeUpdate) {
+      this.handleSubmit(e);
+    }
   }
 
   handleSubmit(e) {
@@ -41,6 +50,10 @@ export default class Search extends Component {
 
   render() {
     const { questions } = this.props;
+    let selected="";
+    if (this.onChangeUpdate) {
+      selected="selected";
+    }
     return (
       <div className="search-content">
         <div className="main-bar">
@@ -51,6 +64,8 @@ export default class Search extends Component {
                 value={this.state.title}/>
               <button className="blue-button">Search</button>
             </form>
+            <input type="checkbox" onChange={this.updateCheckbox}
+              selected={selected} />Search as I type
           </div>
           <div className="searched-question-index-list">
             <QuestionIndexContainer questions={questions} loaded={true}/>
