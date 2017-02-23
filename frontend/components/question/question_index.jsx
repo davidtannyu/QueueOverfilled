@@ -5,6 +5,7 @@ import QuestionIndexItem from './question_index_item';
 export default class QuestionIndex extends Component {
 
   componentDidMount() {
+    window.scrollTo(0,0);
     if (!this.props.loaded) {
       this.props.fetchQuestions();
     }

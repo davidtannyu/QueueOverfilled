@@ -15,6 +15,7 @@ export default class Search extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0,0);
     const title = decodeURIComponent(this.props.location.search.slice(7));
     this.props.fetchQuestions({ title });
   }

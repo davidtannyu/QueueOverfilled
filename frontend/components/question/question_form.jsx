@@ -10,6 +10,10 @@ export default class QuestionForm extends Component {
     this.handleField = this.handleField.bind(this);
   }
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const question = Object.assign({}, this.state,

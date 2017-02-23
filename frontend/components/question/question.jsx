@@ -15,6 +15,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0,0);
     let promise;
     if (this.props.currentUser) {
       promise =
