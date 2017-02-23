@@ -132,3 +132,19 @@ div.children {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+i.upvote-arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+}
+
+i.downvote-arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}

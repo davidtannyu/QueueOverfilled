@@ -22,7 +22,7 @@ export default class Vote extends Component {
       <div className="vote-component">
         <div className="upvote">
           <p className={upvote}>
-            ^
+            <i className="upvote-arrow"></i>
           </p>
         </div>
         <div className="vote-count">
@@ -30,7 +30,7 @@ export default class Vote extends Component {
         </div>
         <div className="downvote">
           <p className={downvote}>
-            V
+            <i className="downvote-arrow"></i>
           </p>
         </div>
       </div>
