@@ -29,12 +29,15 @@ export default class Vote extends Component {
         this.props.updateVote(currentVote);
       } else {
         voteCount += 1;
-        this.setState({voteCount});
+        currentVote.value = 1;
+        this.setState({currentVote, voteCount});
         this.props.createVote({
           value: 1,
           voter_id: this.props.currentUser.id,
           answer_id: this.props.answerId
-        }).then(action => this.setState({currentVote: action.vote}));
+        }).then(action => this.setState({
+          currentVote: Object.values(action.vote)[0]
+        }));
       }
     }
   }
@@ -66,12 +69,15 @@ export default class Vote extends Component {
         this.props.updateVote(currentVote);
       } else {
         voteCount -= 1;
-        this.setState({voteCount});
+        currentVote.value = -1;
+        this.setState({currentVote, voteCount});
         this.props.createVote({
           value: -1,
           voter_id: this.props.currentUser.id,
           answer_id: this.props.answerId
-        }).then(action => this.setState({currentVote: action.vote}));
+        }).then(action => {
+          this.setState({currentVote: Object.values(action.vote)[0]});
+        });
       }
     }
   }
