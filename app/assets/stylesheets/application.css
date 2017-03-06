@@ -83,8 +83,6 @@ button:focus:active {
 div.children {
   padding-top: 80px;
   min-height: 1000px;
-  display: flex;
-  justify-content: center;
 }
 
 .footer {
