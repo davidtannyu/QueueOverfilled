@@ -2,7 +2,7 @@
   display:flex;
   justify-content: space-around;
   align-content: center;
-  align-items: baseline;
+  align-items: center;
   border-bottom: 1px solid #e4e6e8;
   border-top: 3px solid purple;
   position: fixed;
@@ -19,6 +19,8 @@
 }
 
 .navbar-left {
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -26,8 +28,8 @@
   justify-content: flex-end;
 }
 
-.navbar .logo {
-
+img.logo {
+  padding-right: 20px;
 }
 
 .navbar .logo strong {
