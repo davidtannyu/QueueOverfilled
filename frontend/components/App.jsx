@@ -5,10 +5,27 @@ import { Link, hashHistory } from 'react-router';
 import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  const { children, loading, clear, title } = props;
+  const { children, loading, clear, title, isGuest } = props;
   let loadingIcon = null;
+  let guestGreeting = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
+  }
+  if (isGuest) {
+    guestGreeting = (
+      <div className="guest-greeting">
+      <p>
+      Greetings Guest! Welcome to QueueOverfilled! <br />
+      This project is made to emulate StackOverflow. <br />
+      Feel free to ask questions and answer them and even vote as a guest! <br />
+      If you would like to look at the code, the repo can be found&nbsp;
+      <Link to="https://github.com/davidtannyu/QueueOverfilled">here</Link>. <br />
+      If you would like to know more about me, my portfolio can be found&nbsp;
+      <Link to="http://davidtan.pro/">here</Link> and my LinkedIn can be found&nbsp;
+      <Link to="https://www.linkedin.com/in/davidtandata/">here</Link>.
+      </p>
+      </div>
+    );
   }
   return (
     <div className="page">
@@ -29,6 +46,7 @@ const App = (props) => {
         </div>
       </div>
       <div className="children">
+        {guestGreeting}
         {loadingIcon}
         { children }
       </div>
@@ -87,7 +105,7 @@ class SearchBar extends Component {
   render() {
     return (
       <form onSubmit={this.searchRoute}>
-        <input className="navbar-search" 
+        <input className="navbar-search"
           placeholder="Search..."
           onChange={this.updateData}
           value={this.state.title}/>
@@ -102,10 +120,12 @@ const mapStateToProps = (state, ownProps) => {
   if (ownProps.location.search) {
     title = decodeURIComponent(ownProps.location.search.slice(7));
   }
+  const isGuest = state.currentUser.email === "guest@email.queueoverfilled.com";
   return ({
     loading: state.loading,
     clear,
-    title
+    title,
+    isGuest
   });
 };
 
