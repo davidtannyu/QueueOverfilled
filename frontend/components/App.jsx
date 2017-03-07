@@ -120,7 +120,10 @@ const mapStateToProps = (state, ownProps) => {
   if (ownProps.location.search) {
     title = decodeURIComponent(ownProps.location.search.slice(7));
   }
-  const isGuest = state.currentUser.email === "guest@email.queueoverfilled.com";
+  let isGuest = false;
+  if ( state.currentUser ) {
+    isGuest = state.currentUser.email === "guest@email.queueoverfilled.com";
+  }
   return ({
     loading: state.loading,
     clear,
