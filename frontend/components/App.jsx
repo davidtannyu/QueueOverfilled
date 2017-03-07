@@ -114,9 +114,8 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.searchRoute}>
         <div>
-          <i className="fa fa-search" aria-hidden="true"></i>
           <input className="navbar-search"
-            placeholder="Search..."
+            placeholder="&#xf002; Search..."
             onChange={this.updateData}
             value={this.state.title}/>
         </div>
