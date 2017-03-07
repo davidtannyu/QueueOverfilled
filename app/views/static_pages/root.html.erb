@@ -5,7 +5,7 @@
     'api/users/user.json.jbuilder',
     user: current_user).html_safe %>
   <% end %>
-  window.logo = "../../assets/favicon.png";
+  window.logo = "<%= asset_path("favicon.png") %>";
 </script>
 
 <main id="root"></main>
