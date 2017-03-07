@@ -19,10 +19,10 @@ const App = (props) => {
       This project is made to emulate StackOverflow. <br />
       Feel free to ask questions and answer them and even vote as a guest! <br />
       If you would like to look at the code, the repo can be found&nbsp;
-      <Link to="https://github.com/davidtannyu/QueueOverfilled">here</Link>. <br />
+      <a href="https://github.com/davidtannyu/QueueOverfilled">here</a>. <br />
       If you would like to know more about me, my portfolio can be found&nbsp;
-      <Link to="http://davidtan.pro/">here</Link> and my LinkedIn can be found&nbsp;
-      <Link to="https://www.linkedin.com/in/davidtandata/">here</Link>.
+      <a href="http://davidtan.pro/">here</a> and my LinkedIn can be found&nbsp;
+      <a href="https://www.linkedin.com/in/davidtandata/">here</a>.
       </p>
       </div>
     );

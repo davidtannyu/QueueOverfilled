@@ -136,6 +136,10 @@ div.children {
 
 .guest-greeting {
   text-align: center;
+  background: #f9fbfd;
+  border-bottom: 3px solid #cceaff;
+  color: #464e55;
+  margin-bottom: 20px;
 }
 
 .guest-greeting a {
