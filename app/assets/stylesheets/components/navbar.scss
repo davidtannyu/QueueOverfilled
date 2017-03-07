@@ -1,6 +1,6 @@
 .navbar {
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   align-items: center;
   border-bottom: 1px solid #e4e6e8;
@@ -12,6 +12,10 @@
   width: 100%;
   font-family: Arial;
   height: auto;
+}
+
+.navbar .links {
+  margin-left: 20px;
 }
 
 .navbar-left, .navbar-right, .navbar-center {
@@ -37,7 +41,7 @@ img.logo {
 }
 
 .navbar .logo:hover {
-  background-color: #D3D3D3;
+  background-color: #eff0f1;
 }
 
 .navbar .list-links {

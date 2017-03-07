@@ -37,6 +37,13 @@ const App = (props) => {
               Queue <strong>Overfilled</strong>
             </Link>
           </h1>
+          <div className="links">
+            Questions
+            Jobs
+            Documentation
+            Tags
+            Users
+          </div>
         </div>
         <div className="navbar-center">
           <SearchBar fetchQuestions={props.fetchQuestions} clear={clear}
@@ -106,10 +113,13 @@ class SearchBar extends Component {
   render() {
     return (
       <form onSubmit={this.searchRoute}>
-        <input className="navbar-search"
-          placeholder="Search..."
-          onChange={this.updateData}
-          value={this.state.title}/>
+        <div>
+          <i className="fa fa-search" aria-hidden="true"></i>
+          <input className="navbar-search"
+            placeholder="Search..."
+            onChange={this.updateData}
+            value={this.state.title}/>
+        </div>
       </form>
     );
   }

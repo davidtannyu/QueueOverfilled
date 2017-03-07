@@ -15,19 +15,20 @@ div.searched-question-index-list .main-bar {
 }
 
 .navbar-search {
+  border: none;
   padding: 8px 16px;
   color: #6a737c;
   font-size: 14px;
-  width: 50%;
   transition: width 1s;
+  width: 50%;
 }
 
 .navbar-search:focus {
-  width: 100%;
+  width: 90%;
 }
 
 .navbar-center {
-  width: 200px;
+  width: 500px;
 }
 
 .search-real-time {
