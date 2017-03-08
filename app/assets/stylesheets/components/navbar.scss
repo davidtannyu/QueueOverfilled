@@ -12,6 +12,7 @@
   font-family: Arial;
 }
 
+
 .navbar .links {
   margin-left: 20px;
 }
@@ -25,11 +26,17 @@
   align-items: center;
 }
 
-img.logo {
+.logo-image {
   padding-right: 10px;
 }
 
-.navbar .logo strong {
+.navbar .root-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar .root-link strong {
   font-weight: 600;
 }
 

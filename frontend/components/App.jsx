@@ -31,15 +31,13 @@ const App = (props) => {
     <div className="page">
       <div className="navbar">
         <div className="navbar-left">
-          <div>
-            <img className="logo" src={window.logo} width="50" height="50"/>
-          </div>
-          <div>
-            <h1 className="logo">
+          <div className="root-link logo">
+            <img className="logo-image" src={window.logo} width="50" height="50"/>
+            <p>
               <Link to="/">
                 Queue <strong>Overfilled</strong>
               </Link>
-            </h1>
+            </p>
           </div>
           <div className="links">
             Questions
