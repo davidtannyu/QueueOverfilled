@@ -5,7 +5,6 @@ import { Link, hashHistory } from 'react-router';
 import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  debugger;
   const { children, loading, clear, title, isGuest, location } = props;
   let loadingIcon = null;
   let guestGreeting = null;
