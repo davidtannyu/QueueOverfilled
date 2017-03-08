@@ -12,6 +12,7 @@ export default class QuestionIndex extends Component {
   }
 
   render() {
+    const { loaded, location } = this.props;
     let questions = Object.values(this.props.questions);
     questions = questions.sort( (a,b) => {
       if (a.updated_at < b.updated_at) {
@@ -22,10 +23,16 @@ export default class QuestionIndex extends Component {
         return 0;
       }
     });
+    let header = null;
+    if (location) {
+      header = (<p className="header-text">Top Questions</p>);
+    } else if (loaded) {
+      header = (<p className="header-text">{questions.length} results</p>);
+    }
     return (
       <div className="content">
         <div className="main-bar">
-          <p className="header-text">Top Questions</p>
+          {header}
             <ul className="question-index-list">
               { questions.map (question => (
                 <QuestionIndexItem key={question.id} question={question}

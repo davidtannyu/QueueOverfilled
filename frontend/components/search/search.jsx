@@ -9,6 +9,7 @@ export default class Search extends Component {
     const title = decodeURIComponent(props.location.search.slice(7));
     this.state = { title };
     this.onChangeUpdate = false;
+    this.empty = false;
     this.updateSearch = this.updateSearch.bind(this);
     this.updateCheckbox = this.updateCheckbox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,12 +18,14 @@ export default class Search extends Component {
   componentDidMount() {
     window.scrollTo(0,0);
     const title = decodeURIComponent(this.props.location.search.slice(7));
+    this.empty = (title === "");
     this.props.fetchQuestions({ title });
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.location.search !== newProps.location.search) {
       const title = decodeURIComponent(newProps.location.search.slice(7));
+      this.empty = (title === "");
       this.props.fetchQuestions({ title });
       this.setState({title});
     }
@@ -46,11 +49,22 @@ export default class Search extends Component {
     if (title) {
       this.props.fetchQuestions({ title })
       .then(() => hashHistory.push(`/search?title=${encodeURIComponent(this.state.title)}`));
+    } else if (title === "") {
+      this.props.fetchQuestions({ title: null })
+      .then(() => hashHistory.push(`/search?title=${encodeURIComponent(this.state.title)}`));
     }
   }
 
   render() {
     const { questions } = this.props;
+    let questionIndex = null;
+    if (!this.empty) {
+      questionIndex = (
+        <div className="searched-question-index-list">
+          <QuestionIndexContainer questions={questions} loaded={true}/>
+        </div>
+      );
+    }
     return (
       <div className="search-content">
         <div className="main-bar">
@@ -65,9 +79,7 @@ export default class Search extends Component {
               type="checkbox"
               onChange={this.updateCheckbox}/>Search As You Type Real-Time
           </div>
-          <div className="searched-question-index-list">
-            <QuestionIndexContainer questions={questions} loaded={true}/>
-          </div>
+          {questionIndex}
         </div>
       </div>
     );
