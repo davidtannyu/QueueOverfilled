@@ -7,11 +7,9 @@
   border-top: 3px solid purple;
   position: fixed;
   z-index: 1;
-  top: -2px;
   background-color: #fafafb;
   width: 100%;
   font-family: Arial;
-  height: auto;
 }
 
 .navbar .links {
@@ -19,21 +17,16 @@
 }
 
 .navbar-left, .navbar-right, .navbar-center {
-  margin: 10px 10px;
+  margin: 0 10px;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-}
-
-.navbar-right {
-  justify-content: flex-end;
 }
 
 img.logo {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .navbar .logo strong {
@@ -47,8 +40,6 @@ img.logo {
 .navbar .list-links {
   display: flex;
   align-items: baseline;
-  align-content: stretch;
-  list-style: none;
   color: #005999;
   height: auto;
 }
@@ -57,5 +48,4 @@ img.logo {
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
-  text-align: center;
 }
