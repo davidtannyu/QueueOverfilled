@@ -5,11 +5,16 @@ import { Link, hashHistory } from 'react-router';
 import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
-  const { children, loading, clear, title, isGuest } = props;
+  debugger;
+  const { children, loading, clear, title, isGuest, location } = props;
   let loadingIcon = null;
   let guestGreeting = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
+  }
+  let questionClass = "";
+  if (location.pathname.includes("questions")) {
+    questionClass = "question-route";
   }
   if (isGuest) {
     guestGreeting = (
@@ -40,7 +45,7 @@ const App = (props) => {
             </p>
           </div>
           <div className="links">
-            <a href="">Questions</a>
+            <a  className={questionClass} href="">Questions</a>
             <a href="">Jobs</a>
             <a href="">Documentation</a>
             <a href="">Tags</a>
