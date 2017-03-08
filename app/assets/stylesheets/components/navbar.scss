@@ -14,7 +14,7 @@
 
 
 .navbar .links {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .navbar-left, .navbar-right, .navbar-center {
@@ -55,4 +55,12 @@
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
+}
+
+.navbar .links a {
+  margin: 0 5px;
+}
+
+.navbar {
+  word-wrap: normal;
 }

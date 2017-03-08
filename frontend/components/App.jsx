@@ -40,11 +40,11 @@ const App = (props) => {
             </p>
           </div>
           <div className="links">
-            Questions
-            Jobs
-            Documentation
-            Tags
-            Users
+            <a href="">Questions</a>
+            <a href="">Jobs</a>
+            <a href="">Documentation</a>
+            <a href="">Tags</a>
+            <a href="">Users</a>
           </div>
         </div>
         <div className="navbar-center">
