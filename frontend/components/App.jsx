@@ -34,12 +34,12 @@ const App = (props) => {
       <div className="navbar">
         <div className="navbar-left">
           <div className="root-link logo">
-            <img className="logo-image" src={window.logo} width="50" height="50"/>
-            <p>
-              <Link to="/">
-                Queue <strong>Overfilled</strong>
-              </Link>
-            </p>
+            <Link to="/">
+              <img className="logo-image" src={window.logo} width="50" height="50"/>
+              <p>
+                  Queue <strong>Overfilled</strong>
+              </p>
+            </Link>
           </div>
           <div className="links">
             <a  className={questionClass} href="">Questions</a>
