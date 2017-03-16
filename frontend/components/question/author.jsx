@@ -6,9 +6,7 @@ const Author = (props) => {
   return (
     <div className="author-display">
       <div className="question author-info">
-        <Link to={`/users/${author.id}`}>
           {author.display_name}
-        </Link>
       </div>
     </div>
   );
