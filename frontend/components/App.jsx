@@ -65,20 +65,26 @@ const App = (props) => {
         { children }
       </div>
       <div className="footer">
-        <a href="#">about us</a>
-        <a href="#">tour</a>
-        <a href="#">help</a>
-        <a href="#">blog</a>
-        <a href="#">chat</a>
-        <a href="#">data</a>
-        <a href="#">legal</a>
-        <a href="#">privacy policy</a>
-        <a href="#">work here</a>
-        <a href="#">advertising info</a>
-        <a href="#">developers jobs directory</a>
-        <a href="#">mobile</a>
-        <a href="#"><strong>contact us</strong></a>
-        <a href="#"><strong>feedback</strong></a>
+          <div>
+          <a href="https://github.com/davidtannyu">
+            <i className="fa fa-github fa-5x" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/davidtandata/">
+            <i className="fa fa-linkedin fa-5x" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div>
+          <a href="https://angel.co/david-tan-20">
+            <i className="fa fa-angellist fa-5x" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div>
+          <a href="https://davidtan.pro">
+            <i className="fa fa-id-card fa-5x" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
     </div>
   );
