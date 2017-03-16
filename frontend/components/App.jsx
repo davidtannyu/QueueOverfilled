@@ -44,10 +44,6 @@ const App = (props) => {
           </div>
           <div className="links">
             <a  className={questionClass} href="">Questions</a>
-            <a href="">Jobs</a>
-            <a href="">Documentation</a>
-            <a href="">Tags</a>
-            <a href="">Users</a>
           </div>
         </div>
         <div className="navbar-center">
