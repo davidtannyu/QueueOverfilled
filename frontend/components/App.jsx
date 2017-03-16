@@ -19,14 +19,12 @@ const App = (props) => {
     guestGreeting = (
       <div className="guest-greeting">
       <p>
-      Greetings Guest! Welcome to QueueOverfilled! <br />
+      <h1>Greetings Guest! Welcome to QueueOverfilled! </h1>
       This project is made to emulate StackOverflow. <br />
       Feel free to ask questions and answer them and even vote as a guest! <br />
       If you would like to look at the code, the repo can be found&nbsp;
       <a href="https://github.com/davidtannyu/QueueOverfilled">here</a>. <br />
-      If you would like to know more about me, my portfolio can be found&nbsp;
-      <a href="http://davidtan.pro/">here</a> and my LinkedIn can be found&nbsp;
-      <a href="https://www.linkedin.com/in/davidtandata/">here</a>.
+      Check out my other sites at the bottom.
       </p>
       </div>
     );
@@ -64,7 +62,7 @@ const App = (props) => {
         {loadingIcon}
         { children }
       </div>
-      <div className="footer">
+      <div id="footer" className="footer">
           <div>
           <a href="https://github.com/davidtannyu">
             <i className="fa fa-github fa-5x" aria-hidden="true"></i>

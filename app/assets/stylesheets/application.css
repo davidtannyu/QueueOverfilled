@@ -136,9 +136,15 @@ div.children {
 .guest-greeting {
   text-align: center;
   background: #f9fbfd;
-  border-bottom: 3px solid #cceaff;
+  border: 3px solid #cceaff;
   color: #464e55;
   margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Harmattan', sans-serif;
+}
+
+.guest-greeting h1 {
+  font-size: 24px;
 }
 
 .guest-greeting a {
