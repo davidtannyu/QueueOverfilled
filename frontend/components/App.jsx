@@ -19,12 +19,13 @@ const App = (props) => {
     guestGreeting = (
       <div className="guest-greeting">
       <p>
-      <inner>Greetings Guest! Welcome to QueueOverfilled!</inner> <br />
+      <inner>Greetings Guest! Welcome to QueueOverfilled!</inner> <br /><br />
       This project is made to emulate StackOverflow. <br />
       Feel free to ask questions and answer them and even vote as a guest! <br />
       If you would like to look at the code, the repo can be found&nbsp;
       <a href="https://github.com/davidtannyu/QueueOverfilled">here</a>. <br />
       Check out my other sites at the bottom.
+      <br />
       </p>
       </div>
     );

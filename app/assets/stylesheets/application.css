@@ -134,16 +134,20 @@ div.children {
 }
 
 .guest-greeting {
+  padding: 20px;
   text-align: center;
   background: #f9fbfd;
   border: 3px solid #cceaff;
   color: #464e55;
   margin-bottom: 20px;
-  font-size: 20px;
-  font-family: 'Harmattan', sans-serif;
+  font-size: 16px;
+  font-family: Arial;
+  line-height: 150%;
 }
 
+
 .guest-greeting inner {
+  margin-top: 10px;
   font-size: 24px;
 }
 
