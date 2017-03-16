@@ -71,14 +71,6 @@ export default class QuestionForm extends Component {
                   <h4 className="error-text" key={idx}>{el}</h4>
               ))}
             </div>
-            <div className="input-field">
-              <input
-                type="checkbox" />
-              <span className="checkbox"><strong>
-                Send me new responses to my posts via email
-              </strong>
-              </span>
-            </div>
             <button className="blue-button">{buttonText}</button>
           </form>
         </div>
