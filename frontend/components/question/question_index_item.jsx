@@ -22,9 +22,7 @@ const QuestionIndexItem = (props) => {
           { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60))}
           &nbsp;min ago &nbsp;
         </Link>
-         <Link to={`/users/${question.author.id}`}>
            {question.author.display_name}
-         </Link>
       </div>
     );
   } else {
@@ -35,9 +33,7 @@ const QuestionIndexItem = (props) => {
           { Math.floor((new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60))}
           &nbsp; min ago &nbsp;
         </Link>
-         <Link to={`/users/${question.last_answer.id}`}>
            {question.last_answer.display_name}
-         </Link>
       </div>
     );
   }

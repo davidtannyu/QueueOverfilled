@@ -112,9 +112,7 @@ class AnswerIndexItem extends Component {
               {deleteButton}
             </div>
             <div className="answer-author">
-              <Link to={`/users/${answer.author.id}`}>
                 {answer.author.display_name}
-              </Link>
             </div>
           </div>
 
