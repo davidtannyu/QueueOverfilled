@@ -19,8 +19,8 @@ const QuestionIndexItem = (props) => {
       <div className="last-update">
         <Link to={`/questions/${question.id}`} className="last-update-link">
           asked &nbsp;
-          { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60))}
-          &nbsp;min ago &nbsp;
+          { Math.floor((new Date() - new Date(question.created_at * 1000))/ (1000 * 60 * 60 * 24))}
+          &nbsp;days ago &nbsp;
         </Link>
            {question.author.display_name}
       </div>
@@ -30,8 +30,8 @@ const QuestionIndexItem = (props) => {
       <div className="last-update">
         <Link to={`/questions/${question.id}`} className="last-update-link">
           answered &nbsp;
-          { Math.floor((new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60))}
-          &nbsp; min ago &nbsp;
+          { Math.floor((new Date() - new Date(question.last_answer.created_at * 1000)) / (1000 * 60 * 60 * 24))}
+          &nbsp; days ago &nbsp;
         </Link>
            {question.last_answer.display_name}
       </div>
