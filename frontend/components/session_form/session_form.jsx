@@ -138,17 +138,6 @@ class SessionForm extends React.Component {
             <h1>{topText}</h1>
           </div>
           <div className="session-form">
-            <div className="other-auth">
-              <button className="google">
-                Google
-              </button>
-              <button className="facebook">
-                Facebook
-              </button>
-            </div>
-            <div className="or-container">
-              <span>OR</span>
-            </div>
             <form onSubmit={this.handleSubmit}>
               {display_name_field}
               <label htmlFor="email"><strong>Email{extraText}</strong></label>
