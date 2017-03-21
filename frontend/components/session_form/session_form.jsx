@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
     let privacyPolicy = "";
     let bottomText = (
       <div>
-        Don't have an account? <Link to="/">Sign up</Link>
+        Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
     );
     let extraText = "";
@@ -128,7 +128,7 @@ class SessionForm extends React.Component {
               </Link>
             </div>
             <div className="signUp-link">
-              <Link className={signUpClass} to="/signUp">
+              <Link className={signUpClass} to="/signup">
                 Sign Up
               </Link>
             </div>
