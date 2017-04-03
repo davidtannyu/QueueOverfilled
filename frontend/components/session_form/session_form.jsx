@@ -75,7 +75,6 @@ class SessionForm extends React.Component {
       </div>
     );
     let topText = "QueueOverfilled is part of a growing community of Q&As!";
-    let privacyPolicy = "";
     let bottomText = (
       <div>
         Don't have an account? <Link to="/signup">Sign up</Link>
@@ -101,13 +100,6 @@ class SessionForm extends React.Component {
               <h4 className="error-text" key={idx}>{el}</h4>
           ))}
         </div>
-      );
-      privacyPolicy = (
-        <p className="privacy-text">
-          By registering, you agree to the privacy policy and
-          <br />
-          terms of service.
-        </p>
       );
       bottomText = (
         <div>
@@ -163,7 +155,6 @@ class SessionForm extends React.Component {
               </div>
               <button className="session-button">{buttonText}</button>
               {guestButton}
-              {privacyPolicy}
             </form>
           </div>
           <div className="bottom-text">
