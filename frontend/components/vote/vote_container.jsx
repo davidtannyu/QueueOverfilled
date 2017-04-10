@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createVote, updateVote } from "../../actions/vote_actions";
 import { fetchAnswer, receiveAnswer } from "../../actions/answer_actions";
+import { getCurrentVote } from "../../reducers/selector.js";
 import Vote from './vote';
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,14 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   const { answer } = ownProps;
   const voteCount = answer.vote_count;
   const answerId = answer.id;
-  let currentVote = {};
-  Object.values(state.votes).forEach((vote) => {
-    if (currentUser && vote.voter_id === currentUser.id &&
-      vote.answer_id === answerId) {
-        currentVote = vote;
-        return false;
-    }
-  });
+  let currentVote = getCurrentVote(state, answerId);
   return {
     currentVote,
     voteCount,
