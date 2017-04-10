@@ -162,3 +162,7 @@ div.children {
 .guest-greeting a:hover {
   color: #3af;
 }
+
+.invisible {
+  display: none;
+}
