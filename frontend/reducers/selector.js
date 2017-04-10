@@ -8,4 +8,5 @@ export const getCurrentVote = ({votes, currentUser }, answerId) => {
             return vote;
         }
     });
+    return {};
 }
