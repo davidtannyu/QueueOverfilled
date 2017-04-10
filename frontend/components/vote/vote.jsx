@@ -97,6 +97,10 @@ export default class Vote extends Component {
         downvote = "selected";
       }
     }
+    if (!currentUser) {
+      upvote += " invisible";
+      downvote += " invisible";
+    }
     return (
       <div className="vote-component">
         <div className="upvote">
