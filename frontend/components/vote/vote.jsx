@@ -88,6 +88,7 @@ export default class Vote extends Component {
 
   render() {
     const { currentVote } = this.state;
+    const { currentUser } = this.props;
     let upvote = "";
     let downvote = "";
     if (currentVote.id) {
