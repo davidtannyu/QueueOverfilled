@@ -2,8 +2,6 @@
 
 ![home]
 
-[QueueOverfilled][queueOverfilled]
-
 ## Summary
 
 [QueueOverfilled][queueOverfilled]  is a web forum designed to emulate 
