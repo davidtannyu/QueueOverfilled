@@ -2,8 +2,6 @@
 
 ![home]
 
-[QueueOverfilled][queueOverfilled]
-
 ## Summary
 
 [QueueOverfilled][queueOverfilled]  is a web forum designed to emulate 
@@ -85,7 +83,7 @@ retrieve questions that match the query while typing it out.
 Search by seperate words rather than exact substring matches unless otherwise
 specified.
 
-[queueOverfilled]: https://queueoverfilled.herokuapp.com/#/
+[queueOverfilled]: https://www.queueoverfilled.us
 [React]:https://facebook.github.io/react/
 [Flux]:https://facebook.github.io/flux/
 
