@@ -6,10 +6,8 @@ import { getCurrentVote } from "../../reducers/selector.js";
 import Vote from './vote';
 
 const mapStateToProps = (state, ownProps) => {
-  const { currentUser } = state;
-  const { answer } = ownProps;
-  const voteCount = answer.vote_count;
-  const answerId = answer.id;
+  const { currentUser } = state, { answer } = ownProps, 
+    voteCount = answer.vote_count, answerId = answer.id;
   let currentVote = getCurrentVote(state, answerId);
   return {
     currentVote,
