@@ -87,10 +87,8 @@ export default class Vote extends Component {
   }
 
   render() {
-    const { currentVote } = this.state;
-    const { currentUser } = this.props;
-    let upvote = "";
-    let downvote = "";
+    const { currentVote } = this.state, { currentUser } = this.props;
+    let upvote = "", downvote = "";
     if (currentVote.id) {
       if (currentVote.value === 1) {
         upvote = "selected";
