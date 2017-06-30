@@ -6,8 +6,7 @@ import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
   const { children, loading, clear, title, isGuest, location } = props;
-  let loadingIcon = null;
-  let guestGreeting = null;
+  let loadingIcon = null, guestGreeting = null;
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
   }
