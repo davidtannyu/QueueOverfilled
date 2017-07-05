@@ -132,11 +132,10 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const clear = (ownProps.location.pathname !== "/search");
-  let title = "";
+  let title = "", isGuest = false;
   if (ownProps.location.search) {
     title = decodeURIComponent(ownProps.location.search.slice(7));
   }
-  let isGuest = false;
   if ( state.currentUser ) {
     isGuest = state.currentUser.email === "guest@email.queueoverfilled.com";
   }
