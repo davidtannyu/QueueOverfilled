@@ -6,11 +6,10 @@ import { fetchQuestions } from '../actions/question_actions';
 
 const App = (props) => {
   const { children, loading, clear, title, isGuest, location } = props;
-  let loadingIcon = null, guestGreeting = null;
+  let loadingIcon = null, guestGreeting = null, questionClass = "";
   if (loading) {
     loadingIcon = (<div className="loader"></div>);
   }
-  let questionClass = "";
   if (location.pathname.includes("questions")) {
     questionClass = "question-route";
   }
