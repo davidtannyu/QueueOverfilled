@@ -51,11 +51,10 @@ class SessionForm extends React.Component {
 
   render() {
     const { formType, errors, loggedIn } = this.props;
-    let display_name_field = null;
-    let buttonText = "Log In";
-    let signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form";
-    let logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form";
-    let passwordErrors = errors.filter( (error) => {
+    let display_name_field = null, buttonText = "Log In",
+      signUpClass = (formType === "signUp") ? "selected-form" : "unselected-form",
+      logInClass = (formType !== "signUp") ? "selected-form" : "unselected-form",
+      passwordErrors = errors.filter( (error) => {
       return error.split(" ")[0] === "Password";
     });
     let emailErrors = errors.filter( (error) => {
