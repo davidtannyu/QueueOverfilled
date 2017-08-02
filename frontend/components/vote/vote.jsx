@@ -12,8 +12,7 @@ export default class Vote extends Component {
   upVote(e) {
     e.preventDefault();
     if (this.props.currentUser){
-      let { currentVote, answer } = this.props;
-      let { voteCount } = this.state;
+      let { currentVote, answer } = this.props, { voteCount } = this.state;
       if ( currentVote.id ) {
         if (currentVote.value === 1) {
           voteCount -= 1;
