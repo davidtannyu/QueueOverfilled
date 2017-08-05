@@ -15,7 +15,7 @@ export default class Vote extends Component {
       let { currentVote, answer } = this.props, { voteCount } = this.state;
       if ( currentVote.id ) {
         if (currentVote.value === 1) {
-          voteCount -= 1;
+          voteCount--;
           currentVote.value = 0;
         } else {
           voteCount += 1;
